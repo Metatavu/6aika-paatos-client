@@ -26,7 +26,7 @@ module.exports = function(grunt) {
           '-i https://raw.githubusercontent.com/6aika/api-paatos/master/paatos.swagger.yaml ' +
           '-l javascript ' +
           '-o javascript-generated/ ' +
-          `--additional-properties usePromises=true,projectName=6aika-paatos-client,projectVersion=${JAVASCRIPT_VERSION}`
+          `--additional-properties usePromises=true,projectName=paatos-api-client,projectVersion=${JAVASCRIPT_VERSION}`
       },
       'javascript-bump-version': {
         command: 'npm version patch',
