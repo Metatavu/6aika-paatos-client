@@ -36,7 +36,7 @@
   /**
    * The InlineResponse2001 model module.
    * @module model/InlineResponse2001
-   * @version 0.0.3
+   * @version 0.0.4
    */
 
   /**
@@ -73,8 +73,8 @@
       if (data.hasOwnProperty('previous')) {
         obj['previous'] = ApiClient.convertToType(data['previous'], 'String');
       }
-      if (data.hasOwnProperty('reults')) {
-        obj['reults'] = ApiClient.convertToType(data['reults'], [Action]);
+      if (data.hasOwnProperty('results')) {
+        obj['results'] = ApiClient.convertToType(data['results'], [Action]);
       }
     }
     return obj;
@@ -96,9 +96,9 @@
    */
   exports.prototype['previous'] = undefined;
   /**
-   * @member {Array.<module:model/Action>} reults
+   * @member {Array.<module:model/Action>} results
    */
-  exports.prototype['reults'] = undefined;
+  exports.prototype['results'] = undefined;
 
 
 

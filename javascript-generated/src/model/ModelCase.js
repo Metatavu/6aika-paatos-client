@@ -36,7 +36,7 @@
   /**
    * The ModelCase model module.
    * @module model/ModelCase
-   * @version 0.0.3
+   * @version 0.0.4
    */
 
   /**

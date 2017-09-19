@@ -36,7 +36,7 @@
   /**
    * The VoteEvent model module.
    * @module model/VoteEvent
-   * @version 0.0.3
+   * @version 0.0.4
    */
 
   /**
