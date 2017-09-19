@@ -33,7 +33,7 @@
   /**
    * Cases service.
    * @module api/CasesApi
-   * @version 0.0.2
+   * @version 0.0.3
    */
 
   /**

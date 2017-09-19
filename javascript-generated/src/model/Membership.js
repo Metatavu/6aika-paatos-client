@@ -36,7 +36,7 @@
   /**
    * The Membership model module.
    * @module model/Membership
-   * @version 0.0.2
+   * @version 0.0.3
    */
 
   /**

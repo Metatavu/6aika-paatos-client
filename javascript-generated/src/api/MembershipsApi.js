@@ -33,7 +33,7 @@
   /**
    * Memberships service.
    * @module api/MembershipsApi
-   * @version 0.0.2
+   * @version 0.0.3
    */
 
   /**

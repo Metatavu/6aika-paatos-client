@@ -36,7 +36,7 @@
   /**
    * The CaseRelatedCases model module.
    * @module model/CaseRelatedCases
-   * @version 0.0.2
+   * @version 0.0.3
    */
 
   /**
