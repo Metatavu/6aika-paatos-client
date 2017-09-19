@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Action'), require('./Event'), require('./Organization'), require('./VoteCount'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.VoteEvent = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Action, root.6aikaPaatosClient.Event, root.6aikaPaatosClient.Organization, root.6aikaPaatosClient.VoteCount);
+    root.PaatosApiClient.VoteEvent = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Action, root.PaatosApiClient.Event, root.PaatosApiClient.Organization, root.PaatosApiClient.VoteCount);
   }
 }(this, function(ApiClient, Action, Event, Organization, VoteCount) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The VoteEvent model module.
    * @module model/VoteEvent
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.VoteEvent
+# PaatosApiClient.VoteEvent
 
 ## Properties
 Name | Type | Description | Notes

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/InlineResponse2004'), require('../model/Membership'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.MembershipsApi = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.InlineResponse2004, root.6aikaPaatosClient.Membership);
+    root.PaatosApiClient.MembershipsApi = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.InlineResponse2004, root.PaatosApiClient.Membership);
   }
 }(this, function(ApiClient, InlineResponse2004, Membership) {
   'use strict';
@@ -33,7 +33,7 @@
   /**
    * Memberships service.
    * @module api/MembershipsApi
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

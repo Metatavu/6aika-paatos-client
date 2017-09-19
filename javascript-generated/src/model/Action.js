@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Content'), require('./ModelCase'), require('./Organization'), require('./Post'), require('./VoteEvent'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.Action = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Content, root.6aikaPaatosClient.ModelCase, root.6aikaPaatosClient.Organization, root.6aikaPaatosClient.Post, root.6aikaPaatosClient.VoteEvent);
+    root.PaatosApiClient.Action = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Content, root.PaatosApiClient.ModelCase, root.PaatosApiClient.Organization, root.PaatosApiClient.Post, root.PaatosApiClient.VoteEvent);
   }
 }(this, function(ApiClient, Content, ModelCase, Organization, Post, VoteEvent) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The Action model module.
    * @module model/Action
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

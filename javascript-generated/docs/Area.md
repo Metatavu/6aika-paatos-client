@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.Area
+# PaatosApiClient.Area
 
 ## Properties
 Name | Type | Description | Notes

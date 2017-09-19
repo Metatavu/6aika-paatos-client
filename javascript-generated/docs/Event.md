@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.Event
+# PaatosApiClient.Event
 
 ## Properties
 Name | Type | Description | Notes

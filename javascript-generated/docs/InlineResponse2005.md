@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.InlineResponse2005
+# PaatosApiClient.InlineResponse2005
 
 ## Properties
 Name | Type | Description | Notes

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Action'), require('../model/InlineResponse2001'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.ActionsApi = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Action, root.6aikaPaatosClient.InlineResponse2001);
+    root.PaatosApiClient.ActionsApi = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Action, root.PaatosApiClient.InlineResponse2001);
   }
 }(this, function(ApiClient, Action, InlineResponse2001) {
   'use strict';
@@ -33,7 +33,7 @@
   /**
    * Actions service.
    * @module api/ActionsApi
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

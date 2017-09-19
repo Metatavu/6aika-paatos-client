@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/InlineResponse200'), require('../model/ModelCase'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.CasesApi = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.InlineResponse200, root.6aikaPaatosClient.ModelCase);
+    root.PaatosApiClient.CasesApi = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.InlineResponse200, root.PaatosApiClient.ModelCase);
   }
 }(this, function(ApiClient, InlineResponse200, ModelCase) {
   'use strict';
@@ -33,7 +33,7 @@
   /**
    * Cases service.
    * @module api/CasesApi
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.ContentHypertext = factory(root.6aikaPaatosClient.ApiClient);
+    root.PaatosApiClient.ContentHypertext = factory(root.PaatosApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The ContentHypertext model module.
    * @module model/ContentHypertext
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

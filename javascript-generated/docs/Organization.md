@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.Organization
+# PaatosApiClient.Organization
 
 ## Properties
 Name | Type | Description | Notes

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/InlineResponse2003'), require('../model/Organization'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.OrganizationsApi = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.InlineResponse2003, root.6aikaPaatosClient.Organization);
+    root.PaatosApiClient.OrganizationsApi = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.InlineResponse2003, root.PaatosApiClient.Organization);
   }
 }(this, function(ApiClient, InlineResponse2003, Organization) {
   'use strict';
@@ -33,7 +33,7 @@
   /**
    * Organizations service.
    * @module api/OrganizationsApi
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Organization'), require('./Person'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.Event = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Organization, root.6aikaPaatosClient.Person);
+    root.PaatosApiClient.Event = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Organization, root.PaatosApiClient.Person);
   }
 }(this, function(ApiClient, Organization, Person) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The Event model module.
    * @module model/Event
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

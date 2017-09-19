@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Membership'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.Person = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Membership);
+    root.PaatosApiClient.Person = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Membership);
   }
 }(this, function(ApiClient, Membership) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The Person model module.
    * @module model/Person
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

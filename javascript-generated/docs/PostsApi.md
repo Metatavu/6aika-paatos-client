@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.PostsApi
+# PaatosApiClient.PostsApi
 
 All URIs are relative to *https://paatos-test.6aika.fi/v1*
 
@@ -16,9 +16,9 @@ Retrieve a list of posts
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.PostsApi();
+var apiInstance = new PaatosApiClient.PostsApi();
 
 var opts = { 
   'pageSize': 56, // Number | request that server delivers page_size results in response
@@ -60,9 +60,9 @@ Retrieve a single post record
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.PostsApi();
+var apiInstance = new PaatosApiClient.PostsApi();
 
 var id = 56; // Number | Primary key of resource
 

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/InlineResponse2002'), require('../model/InlineResponse2003'), require('../model/InlineResponse2004'), require('../model/InlineResponse2005'), require('../model/Membership'), require('../model/Organization'), require('../model/Person'), require('../model/Post'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.Decision_makersApi = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.InlineResponse2002, root.6aikaPaatosClient.InlineResponse2003, root.6aikaPaatosClient.InlineResponse2004, root.6aikaPaatosClient.InlineResponse2005, root.6aikaPaatosClient.Membership, root.6aikaPaatosClient.Organization, root.6aikaPaatosClient.Person, root.6aikaPaatosClient.Post);
+    root.PaatosApiClient.Decision_makersApi = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.InlineResponse2002, root.PaatosApiClient.InlineResponse2003, root.PaatosApiClient.InlineResponse2004, root.PaatosApiClient.InlineResponse2005, root.PaatosApiClient.Membership, root.PaatosApiClient.Organization, root.PaatosApiClient.Person, root.PaatosApiClient.Post);
   }
 }(this, function(ApiClient, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, Membership, Organization, Person, Post) {
   'use strict';
@@ -33,7 +33,7 @@
   /**
    * Decision_makers service.
    * @module api/Decision_makersApi
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

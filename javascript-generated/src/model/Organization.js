@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Area'), require('./Membership'), require('./Organization'), require('./Post'), require('./VoteEvent'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.Organization = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Area, root.6aikaPaatosClient.Membership, root.6aikaPaatosClient.Organization, root.6aikaPaatosClient.Post, root.6aikaPaatosClient.VoteEvent);
+    root.PaatosApiClient.Organization = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Area, root.PaatosApiClient.Membership, root.PaatosApiClient.Organization, root.PaatosApiClient.Post, root.PaatosApiClient.VoteEvent);
   }
 }(this, function(ApiClient, Area, Membership, Organization, Post, VoteEvent) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The Organization model module.
    * @module model/Organization
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

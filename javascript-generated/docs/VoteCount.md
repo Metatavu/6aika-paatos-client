@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.VoteCount
+# PaatosApiClient.VoteCount
 
 ## Properties
 Name | Type | Description | Notes

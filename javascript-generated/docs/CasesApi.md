@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.CasesApi
+# PaatosApiClient.CasesApi
 
 All URIs are relative to *https://paatos-test.6aika.fi/v1*
 
@@ -16,9 +16,9 @@ Retrieve a list of cases
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.CasesApi();
+var apiInstance = new PaatosApiClient.CasesApi();
 
 var opts = { 
   'limit': 56, // Number | Specify the number of element to display per page.
@@ -60,9 +60,9 @@ Retrieve a single case video by ID
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.CasesApi();
+var apiInstance = new PaatosApiClient.CasesApi();
 
 var id = 56; // Number | Primary key of resource
 

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./ContentHypertext'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.Content = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.ContentHypertext);
+    root.PaatosApiClient.Content = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.ContentHypertext);
   }
 }(this, function(ApiClient, ContentHypertext) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The Content model module.
    * @module model/Content
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/InlineResponse2005'), require('../model/Post'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.PostsApi = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.InlineResponse2005, root.6aikaPaatosClient.Post);
+    root.PaatosApiClient.PostsApi = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.InlineResponse2005, root.PaatosApiClient.Post);
   }
 }(this, function(ApiClient, InlineResponse2005, Post) {
   'use strict';
@@ -33,7 +33,7 @@
   /**
    * Posts service.
    * @module api/PostsApi
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

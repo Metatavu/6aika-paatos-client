@@ -22,17 +22,17 @@
     module.exports = factory(require('superagent'), require('querystring'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.ApiClient = factory(root.superagent, root.querystring);
+    root.PaatosApiClient.ApiClient = factory(root.superagent, root.querystring);
   }
 }(this, function(superagent, querystring) {
   'use strict';
 
   /**
    * @module ApiClient
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

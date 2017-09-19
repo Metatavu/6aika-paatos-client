@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.Membership
+# PaatosApiClient.Membership
 
 ## Properties
 Name | Type | Description | Notes

@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Organization'), require('./Person'), require('./Post'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.Membership = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Organization, root.6aikaPaatosClient.Person, root.6aikaPaatosClient.Post);
+    root.PaatosApiClient.Membership = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Organization, root.PaatosApiClient.Person, root.PaatosApiClient.Post);
   }
 }(this, function(ApiClient, Organization, Person, Post) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The Membership model module.
    * @module model/Membership
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

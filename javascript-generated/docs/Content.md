@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.Content
+# PaatosApiClient.Content
 
 ## Properties
 Name | Type | Description | Notes

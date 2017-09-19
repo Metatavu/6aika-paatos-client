@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Area'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.Area = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Area);
+    root.PaatosApiClient.Area = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Area);
   }
 }(this, function(ApiClient, Area) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The Area model module.
    * @module model/Area
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

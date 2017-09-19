@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.ContentHypertext
+# PaatosApiClient.ContentHypertext
 
 ## Properties
 Name | Type | Description | Notes

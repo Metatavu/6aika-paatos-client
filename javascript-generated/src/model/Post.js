@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Membership'), require('./Organization'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.Post = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Membership, root.6aikaPaatosClient.Organization);
+    root.PaatosApiClient.Post = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Membership, root.PaatosApiClient.Organization);
   }
 }(this, function(ApiClient, Membership, Organization) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The Post model module.
    * @module model/Post
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

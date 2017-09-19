@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Area'), require('./Attachment'), require('./CaseRelatedCases'), require('./CaseSummary'), require('./CaseTitle'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.ModelCase = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Area, root.6aikaPaatosClient.Attachment, root.6aikaPaatosClient.CaseRelatedCases, root.6aikaPaatosClient.CaseSummary, root.6aikaPaatosClient.CaseTitle);
+    root.PaatosApiClient.ModelCase = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Area, root.PaatosApiClient.Attachment, root.PaatosApiClient.CaseRelatedCases, root.PaatosApiClient.CaseSummary, root.PaatosApiClient.CaseTitle);
   }
 }(this, function(ApiClient, Area, Attachment, CaseRelatedCases, CaseSummary, CaseTitle) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The ModelCase model module.
    * @module model/ModelCase
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**

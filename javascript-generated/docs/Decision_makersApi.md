@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.Decision_makersApi
+# PaatosApiClient.Decision_makersApi
 
 All URIs are relative to *https://paatos-test.6aika.fi/v1*
 
@@ -22,9 +22,9 @@ Retrieve a list of memberships
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.Decision_makersApi();
+var apiInstance = new PaatosApiClient.Decision_makersApi();
 
 var opts = { 
   'limit': 56 // Number | Specify the number of element to display per page.
@@ -64,9 +64,9 @@ Retrieve a single membership record
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.Decision_makersApi();
+var apiInstance = new PaatosApiClient.Decision_makersApi();
 
 var id = 56; // Number | Primary key of resource
 
@@ -105,9 +105,9 @@ Retrieve a list of organizations
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.Decision_makersApi();
+var apiInstance = new PaatosApiClient.Decision_makersApi();
 
 var opts = { 
   'limit': 56, // Number | Specify the number of element to display per page.
@@ -149,9 +149,9 @@ Retrieve a single person record
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.Decision_makersApi();
+var apiInstance = new PaatosApiClient.Decision_makersApi();
 
 var id = 56; // Number | Primary key of resource
 
@@ -190,9 +190,9 @@ Retrieve a list of persons
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.Decision_makersApi();
+var apiInstance = new PaatosApiClient.Decision_makersApi();
 
 var opts = { 
   'limit': 56 // Number | Specify the number of element to display per page.
@@ -232,9 +232,9 @@ Retrieve a single person record
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.Decision_makersApi();
+var apiInstance = new PaatosApiClient.Decision_makersApi();
 
 var id = 56; // Number | Primary key of resource
 
@@ -273,9 +273,9 @@ Retrieve a list of posts
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.Decision_makersApi();
+var apiInstance = new PaatosApiClient.Decision_makersApi();
 
 var opts = { 
   'pageSize': 56, // Number | request that server delivers page_size results in response
@@ -317,9 +317,9 @@ Retrieve a single post record
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.Decision_makersApi();
+var apiInstance = new PaatosApiClient.Decision_makersApi();
 
 var id = 56; // Number | Primary key of resource
 

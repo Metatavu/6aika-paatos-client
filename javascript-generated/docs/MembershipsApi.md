@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.MembershipsApi
+# PaatosApiClient.MembershipsApi
 
 All URIs are relative to *https://paatos-test.6aika.fi/v1*
 
@@ -16,9 +16,9 @@ Retrieve a list of memberships
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.MembershipsApi();
+var apiInstance = new PaatosApiClient.MembershipsApi();
 
 var opts = { 
   'limit': 56 // Number | Specify the number of element to display per page.
@@ -58,9 +58,9 @@ Retrieve a single membership record
 
 ### Example
 ```javascript
-var 6aikaPaatosClient = require('6aika-paatos-client');
+var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new 6aikaPaatosClient.MembershipsApi();
+var apiInstance = new PaatosApiClient.MembershipsApi();
 
 var id = 56; // Number | Primary key of resource
 

@@ -1,4 +1,4 @@
-# 6aikaPaatosClient.CaseRelatedCases
+# PaatosApiClient.CaseRelatedCases
 
 ## Properties
 Name | Type | Description | Notes

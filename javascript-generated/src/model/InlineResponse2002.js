@@ -22,10 +22,10 @@
     module.exports = factory(require('../ApiClient'), require('./Meta'), require('./Person'));
   } else {
     // Browser globals (root is window)
-    if (!root.6aikaPaatosClient) {
-      root.6aikaPaatosClient = {};
+    if (!root.PaatosApiClient) {
+      root.PaatosApiClient = {};
     }
-    root.6aikaPaatosClient.InlineResponse2002 = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.Meta, root.6aikaPaatosClient.Person);
+    root.PaatosApiClient.InlineResponse2002 = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Meta, root.PaatosApiClient.Person);
   }
 }(this, function(ApiClient, Meta, Person) {
   'use strict';
@@ -36,7 +36,7 @@
   /**
    * The InlineResponse2002 model module.
    * @module model/InlineResponse2002
-   * @version 0.0.1
+   * @version 0.0.2
    */
 
   /**
