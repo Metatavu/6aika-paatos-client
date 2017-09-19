@@ -36,7 +36,7 @@
   /**
    * The Event model module.
    * @module model/Event
-   * @version 0.0.0
+   * @version 0.0.1
    */
 
   /**
@@ -47,6 +47,18 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -63,16 +75,97 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('start_date')) {
+        obj['start_date'] = ApiClient.convertToType(data['start_date'], 'Date');
+      }
+      if (data.hasOwnProperty('end_date')) {
+        obj['end_date'] = ApiClient.convertToType(data['end_date'], 'String');
+      }
+      if (data.hasOwnProperty('location')) {
+        obj['location'] = ApiClient.convertToType(data['location'], 'String');
+      }
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = ApiClient.convertToType(data['status'], 'String');
+      }
+      if (data.hasOwnProperty('classification')) {
+        obj['classification'] = ApiClient.convertToType(data['classification'], 'String');
+      }
+      if (data.hasOwnProperty('organization_id')) {
+        obj['organization_id'] = ApiClient.convertToType(data['organization_id'], 'String');
+      }
       if (data.hasOwnProperty('organization')) {
         obj['organization'] = Organization.constructFromObject(data['organization']);
       }
       if (data.hasOwnProperty('attendees')) {
         obj['attendees'] = ApiClient.convertToType(data['attendees'], [Person]);
       }
+      if (data.hasOwnProperty('parent_id')) {
+        obj['parent_id'] = ApiClient.convertToType(data['parent_id'], 'String');
+      }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('updated_at')) {
+        obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+      }
     }
     return obj;
   }
 
+  /**
+   * The event's unique identifier
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * The event's name
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
+  /**
+   * The event's description
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * The time at which the event starts
+   * @member {Date} start_date
+   */
+  exports.prototype['start_date'] = undefined;
+  /**
+   * The time at which the event ends
+   * @member {String} end_date
+   */
+  exports.prototype['end_date'] = undefined;
+  /**
+   * The event's location
+   * @member {String} location
+   */
+  exports.prototype['location'] = undefined;
+  /**
+   * The event's status
+   * @member {String} status
+   */
+  exports.prototype['status'] = undefined;
+  /**
+   * The event's category
+   * @member {String} classification
+   */
+  exports.prototype['classification'] = undefined;
+  /**
+   * The ID of the organization organizing the event
+   * @member {String} organization_id
+   */
+  exports.prototype['organization_id'] = undefined;
   /**
    * The organization organizing the event
    * @member {module:model/Organization} organization
@@ -83,6 +176,21 @@
    * @member {Array.<module:model/Person>} attendees
    */
   exports.prototype['attendees'] = undefined;
+  /**
+   * The ID of an event that this event is a part of
+   * @member {String} parent_id
+   */
+  exports.prototype['parent_id'] = undefined;
+  /**
+   * The time at which the resource was created
+   * @member {Date} created_at
+   */
+  exports.prototype['created_at'] = undefined;
+  /**
+   * The time at which the resource was last modified
+   * @member {Date} updated_at
+   */
+  exports.prototype['updated_at'] = undefined;
 
 
 

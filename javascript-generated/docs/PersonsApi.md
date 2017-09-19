@@ -1,30 +1,29 @@
-# 6aikaPaatosClient.CasesApi
+# 6aikaPaatosClient.PersonsApi
 
 All URIs are relative to *https://paatos-test.6aika.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**casesList**](CasesApi.md#casesList) | **GET** /case/ | Retrieve a list of cases
-[**videoDetail**](CasesApi.md#videoDetail) | **GET** /case/{id}/ | Retrieve a single case video by ID
+[**personsList**](PersonsApi.md#personsList) | **GET** /person/ | Retrieve a list of persons
+[**personsRetrieve**](PersonsApi.md#personsRetrieve) | **GET** /person/{id}/ | Retrieve a single person record
 
 
-<a name="casesList"></a>
-# **casesList**
-> InlineResponse200 casesList(opts)
+<a name="personsList"></a>
+# **personsList**
+> InlineResponse2002 personsList(opts)
 
-Retrieve a list of cases
+Retrieve a list of persons
 
 ### Example
 ```javascript
 var 6aikaPaatosClient = require('6aika-paatos-client');
 
-var apiInstance = new 6aikaPaatosClient.CasesApi();
+var apiInstance = new 6aikaPaatosClient.PersonsApi();
 
 var opts = { 
-  'limit': 56, // Number | Specify the number of element to display per page.
-  'offset': 56 // Number | Specify the offset to start displaying element on a page.
+  'limit': 56 // Number | Specify the number of element to display per page.
 };
-apiInstance.casesList(opts).then(function(data) {
+apiInstance.personsList(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -37,11 +36,10 @@ apiInstance.casesList(opts).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Number**| Specify the number of element to display per page. | [optional] 
- **offset** | **Number**| Specify the offset to start displaying element on a page. | [optional] 
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -52,21 +50,21 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="videoDetail"></a>
-# **videoDetail**
-> ModelCase videoDetail(id)
+<a name="personsRetrieve"></a>
+# **personsRetrieve**
+> Person personsRetrieve(id)
 
-Retrieve a single case video by ID
+Retrieve a single person record
 
 ### Example
 ```javascript
 var 6aikaPaatosClient = require('6aika-paatos-client');
 
-var apiInstance = new 6aikaPaatosClient.CasesApi();
+var apiInstance = new 6aikaPaatosClient.PersonsApi();
 
 var id = 56; // Number | Primary key of resource
 
-apiInstance.videoDetail(id).then(function(data) {
+apiInstance.personsRetrieve(id).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -82,7 +80,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelCase**](ModelCase.md)
+[**Person**](Person.md)
 
 ### Authorization
 

@@ -1,30 +1,30 @@
-# 6aikaPaatosClient.CasesApi
+# 6aikaPaatosClient.ActionsApi
 
 All URIs are relative to *https://paatos-test.6aika.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**casesList**](CasesApi.md#casesList) | **GET** /case/ | Retrieve a list of cases
-[**videoDetail**](CasesApi.md#videoDetail) | **GET** /case/{id}/ | Retrieve a single case video by ID
+[**actionsList**](ActionsApi.md#actionsList) | **GET** /action/ | Retrieve a list of actions
+[**actionsRetrieve**](ActionsApi.md#actionsRetrieve) | **GET** /action/{id}/ | Retrieve a single video by ID
 
 
-<a name="casesList"></a>
-# **casesList**
-> InlineResponse200 casesList(opts)
+<a name="actionsList"></a>
+# **actionsList**
+> InlineResponse2001 actionsList(opts)
 
-Retrieve a list of cases
+Retrieve a list of actions
 
 ### Example
 ```javascript
 var 6aikaPaatosClient = require('6aika-paatos-client');
 
-var apiInstance = new 6aikaPaatosClient.CasesApi();
+var apiInstance = new 6aikaPaatosClient.ActionsApi();
 
 var opts = { 
   'limit': 56, // Number | Specify the number of element to display per page.
   'offset': 56 // Number | Specify the offset to start displaying element on a page.
 };
-apiInstance.casesList(opts).then(function(data) {
+apiInstance.actionsList(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -52,21 +52,21 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="videoDetail"></a>
-# **videoDetail**
-> ModelCase videoDetail(id)
+<a name="actionsRetrieve"></a>
+# **actionsRetrieve**
+> Action actionsRetrieve(id)
 
-Retrieve a single case video by ID
+Retrieve a single video by ID
 
 ### Example
 ```javascript
 var 6aikaPaatosClient = require('6aika-paatos-client');
 
-var apiInstance = new 6aikaPaatosClient.CasesApi();
+var apiInstance = new 6aikaPaatosClient.ActionsApi();
 
 var id = 56; // Number | Primary key of resource
 
-apiInstance.videoDetail(id).then(function(data) {
+apiInstance.actionsRetrieve(id).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ModelCase**](ModelCase.md)
+[**Action**](Action.md)
 
 ### Authorization
 

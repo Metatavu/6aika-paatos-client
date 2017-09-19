@@ -36,7 +36,7 @@
   /**
    * The VoteEvent model module.
    * @module model/VoteEvent
-   * @version 0.0.0
+   * @version 0.0.1
    */
 
   /**
@@ -47,6 +47,14 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
+
+
+
 
 
 
@@ -65,22 +73,56 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('organization_id')) {
+        obj['organization_id'] = ApiClient.convertToType(data['organization_id'], 'String');
+      }
       if (data.hasOwnProperty('organization')) {
         obj['organization'] = Organization.constructFromObject(data['organization']);
       }
       if (data.hasOwnProperty('legislative_session')) {
         obj['legislative_session'] = Event.constructFromObject(data['legislative_session']);
       }
+      if (data.hasOwnProperty('identifier')) {
+        obj['identifier'] = ApiClient.convertToType(data['identifier'], 'String');
+      }
       if (data.hasOwnProperty('action')) {
         obj['action'] = Action.constructFromObject(data['action']);
       }
+      if (data.hasOwnProperty('start_date')) {
+        obj['start_date'] = ApiClient.convertToType(data['start_date'], 'Date');
+      }
+      if (data.hasOwnProperty('end_date')) {
+        obj['end_date'] = ApiClient.convertToType(data['end_date'], 'Date');
+      }
+      if (data.hasOwnProperty('result')) {
+        obj['result'] = ApiClient.convertToType(data['result'], 'String');
+      }
       if (data.hasOwnProperty('counts')) {
         obj['counts'] = ApiClient.convertToType(data['counts'], [VoteCount]);
+      }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('updated_at')) {
+        obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
       }
     }
     return obj;
   }
 
+  /**
+   * The vote event's unique identifier
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * The ID of the organization whose members are voting
+   * @member {String} organization_id
+   */
+  exports.prototype['organization_id'] = undefined;
   /**
    * The organization whose members are voting
    * @member {module:model/Organization} organization
@@ -92,15 +134,45 @@
    */
   exports.prototype['legislative_session'] = undefined;
   /**
+   * An issued identifier
+   * @member {String} identifier
+   */
+  exports.prototype['identifier'] = undefined;
+  /**
    * The action to which this vote_event applies.
    * @member {module:model/Action} action
    */
   exports.prototype['action'] = undefined;
   /**
+   * The time at which the event begins
+   * @member {Date} start_date
+   */
+  exports.prototype['start_date'] = undefined;
+  /**
+   * The time at which the event ends
+   * @member {Date} end_date
+   */
+  exports.prototype['end_date'] = undefined;
+  /**
+   * The result of the vote event.
+   * @member {String} result
+   */
+  exports.prototype['result'] = undefined;
+  /**
    * The number of votes for options
    * @member {Array.<module:model/VoteCount>} counts
    */
   exports.prototype['counts'] = undefined;
+  /**
+   * The time at which the resource was created
+   * @member {Date} created_at
+   */
+  exports.prototype['created_at'] = undefined;
+  /**
+   * The time at which the resource was last modified
+   * @member {Date} updated_at
+   */
+  exports.prototype['updated_at'] = undefined;
 
 
 

@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Action', 'model/Area', 'model/Attachment', 'model/CaseRelatedCases', 'model/CaseSummary', 'model/CaseTitle', 'model/Content', 'model/ContentHypertext', 'model/Event', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse2002', 'model/InlineResponse2003', 'model/InlineResponse2004', 'model/InlineResponse2005', 'model/Membership', 'model/Meta', 'model/ModelCase', 'model/Organization', 'model/Person', 'model/Post', 'model/VoteCount', 'model/VoteEvent', 'api/CasesApi', 'api/Decision_makersApi'], factory);
+    define(['ApiClient', 'model/Action', 'model/Area', 'model/Attachment', 'model/CaseRelatedCases', 'model/CaseSummary', 'model/CaseTitle', 'model/Content', 'model/ContentHypertext', 'model/Event', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse2002', 'model/InlineResponse2003', 'model/InlineResponse2004', 'model/InlineResponse2005', 'model/Membership', 'model/Meta', 'model/ModelCase', 'model/Organization', 'model/Person', 'model/Post', 'model/VoteCount', 'model/VoteEvent', 'api/ActionsApi', 'api/CasesApi', 'api/Decision_makersApi', 'api/MembershipsApi', 'api/OrganizationsApi', 'api/PersonsApi', 'api/PostsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Action'), require('./model/Area'), require('./model/Attachment'), require('./model/CaseRelatedCases'), require('./model/CaseSummary'), require('./model/CaseTitle'), require('./model/Content'), require('./model/ContentHypertext'), require('./model/Event'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse2002'), require('./model/InlineResponse2003'), require('./model/InlineResponse2004'), require('./model/InlineResponse2005'), require('./model/Membership'), require('./model/Meta'), require('./model/ModelCase'), require('./model/Organization'), require('./model/Person'), require('./model/Post'), require('./model/VoteCount'), require('./model/VoteEvent'), require('./api/CasesApi'), require('./api/Decision_makersApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Action'), require('./model/Area'), require('./model/Attachment'), require('./model/CaseRelatedCases'), require('./model/CaseSummary'), require('./model/CaseTitle'), require('./model/Content'), require('./model/ContentHypertext'), require('./model/Event'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse2002'), require('./model/InlineResponse2003'), require('./model/InlineResponse2004'), require('./model/InlineResponse2005'), require('./model/Membership'), require('./model/Meta'), require('./model/ModelCase'), require('./model/Organization'), require('./model/Person'), require('./model/Post'), require('./model/VoteCount'), require('./model/VoteEvent'), require('./api/ActionsApi'), require('./api/CasesApi'), require('./api/Decision_makersApi'), require('./api/MembershipsApi'), require('./api/OrganizationsApi'), require('./api/PersonsApi'), require('./api/PostsApi'));
   }
-}(function(ApiClient, Action, Area, Attachment, CaseRelatedCases, CaseSummary, CaseTitle, Content, ContentHypertext, Event, InlineResponse200, InlineResponse2001, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, Membership, Meta, ModelCase, Organization, Person, Post, VoteCount, VoteEvent, CasesApi, Decision_makersApi) {
+}(function(ApiClient, Action, Area, Attachment, CaseRelatedCases, CaseSummary, CaseTitle, Content, ContentHypertext, Event, InlineResponse200, InlineResponse2001, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, Membership, Meta, ModelCase, Organization, Person, Post, VoteCount, VoteEvent, ActionsApi, CasesApi, Decision_makersApi, MembershipsApi, OrganizationsApi, PersonsApi, PostsApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.0
+   * @version 0.0.1
    */
   var exports = {
     /**
@@ -177,6 +177,11 @@
      */
     VoteEvent: VoteEvent,
     /**
+     * The ActionsApi service constructor.
+     * @property {module:api/ActionsApi}
+     */
+    ActionsApi: ActionsApi,
+    /**
      * The CasesApi service constructor.
      * @property {module:api/CasesApi}
      */
@@ -185,7 +190,27 @@
      * The Decision_makersApi service constructor.
      * @property {module:api/Decision_makersApi}
      */
-    Decision_makersApi: Decision_makersApi
+    Decision_makersApi: Decision_makersApi,
+    /**
+     * The MembershipsApi service constructor.
+     * @property {module:api/MembershipsApi}
+     */
+    MembershipsApi: MembershipsApi,
+    /**
+     * The OrganizationsApi service constructor.
+     * @property {module:api/OrganizationsApi}
+     */
+    OrganizationsApi: OrganizationsApi,
+    /**
+     * The PersonsApi service constructor.
+     * @property {module:api/PersonsApi}
+     */
+    PersonsApi: PersonsApi,
+    /**
+     * The PostsApi service constructor.
+     * @property {module:api/PostsApi}
+     */
+    PostsApi: PostsApi
   };
 
   return exports;

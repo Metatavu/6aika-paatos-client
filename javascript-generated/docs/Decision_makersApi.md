@@ -110,7 +110,8 @@ var 6aikaPaatosClient = require('6aika-paatos-client');
 var apiInstance = new 6aikaPaatosClient.Decision_makersApi();
 
 var opts = { 
-  'limit': 56 // Number | Specify the number of element to display per page.
+  'limit': 56, // Number | Specify the number of element to display per page.
+  'offset': 56 // Number | Specify the offset to start displaying element on a page.
 };
 apiInstance.organizationsList(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
@@ -125,6 +126,7 @@ apiInstance.organizationsList(opts).then(function(data) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **Number**| Specify the number of element to display per page. | [optional] 
+ **offset** | **Number**| Specify the offset to start displaying element on a page. | [optional] 
 
 ### Return type
 

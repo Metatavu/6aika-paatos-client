@@ -33,7 +33,7 @@
   /**
    * Decision_makers service.
    * @module api/Decision_makersApi
-   * @version 0.0.0
+   * @version 0.0.1
    */
 
   /**
@@ -148,6 +148,7 @@
      * Retrieve a list of organizations
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit Specify the number of element to display per page.
+     * @param {Number} opts.offset Specify the offset to start displaying element on a page.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2003} and HTTP response
      */
     this.organizationsListWithHttpInfo = function(opts) {
@@ -158,7 +159,8 @@
       var pathParams = {
       };
       var queryParams = {
-        'limit': opts['limit']
+        'limit': opts['limit'],
+        'offset': opts['offset']
       };
       var headerParams = {
       };
@@ -181,6 +183,7 @@
      * Retrieve a list of organizations
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit Specify the number of element to display per page.
+     * @param {Number} opts.offset Specify the offset to start displaying element on a page.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2003}
      */
     this.organizationsList = function(opts) {

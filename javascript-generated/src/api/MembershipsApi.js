@@ -16,29 +16,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/InlineResponse200', 'model/ModelCase'], factory);
+    define(['ApiClient', 'model/InlineResponse2004', 'model/Membership'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/InlineResponse200'), require('../model/ModelCase'));
+    module.exports = factory(require('../ApiClient'), require('../model/InlineResponse2004'), require('../model/Membership'));
   } else {
     // Browser globals (root is window)
     if (!root.6aikaPaatosClient) {
       root.6aikaPaatosClient = {};
     }
-    root.6aikaPaatosClient.CasesApi = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.InlineResponse200, root.6aikaPaatosClient.ModelCase);
+    root.6aikaPaatosClient.MembershipsApi = factory(root.6aikaPaatosClient.ApiClient, root.6aikaPaatosClient.InlineResponse2004, root.6aikaPaatosClient.Membership);
   }
-}(this, function(ApiClient, InlineResponse200, ModelCase) {
+}(this, function(ApiClient, InlineResponse2004, Membership) {
   'use strict';
 
   /**
-   * Cases service.
-   * @module api/CasesApi
+   * Memberships service.
+   * @module api/MembershipsApi
    * @version 0.0.1
    */
 
   /**
-   * Constructs a new CasesApi. 
-   * @alias module:api/CasesApi
+   * Constructs a new MembershipsApi. 
+   * @alias module:api/MembershipsApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -49,13 +49,12 @@
 
 
     /**
-     * Retrieve a list of cases
+     * Retrieve a list of memberships
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit Specify the number of element to display per page.
-     * @param {Number} opts.offset Specify the offset to start displaying element on a page.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse200} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2004} and HTTP response
      */
-    this.casesListWithHttpInfo = function(opts) {
+    this.membershipsListWithHttpInfo = function(opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -63,8 +62,7 @@
       var pathParams = {
       };
       var queryParams = {
-        'limit': opts['limit'],
-        'offset': opts['offset']
+        'limit': opts['limit']
       };
       var headerParams = {
       };
@@ -74,24 +72,23 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = InlineResponse200;
+      var returnType = InlineResponse2004;
 
       return this.apiClient.callApi(
-        '/case/', 'GET',
+        '/membership/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Retrieve a list of cases
+     * Retrieve a list of memberships
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit Specify the number of element to display per page.
-     * @param {Number} opts.offset Specify the offset to start displaying element on a page.
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse200}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2004}
      */
-    this.casesList = function(opts) {
-      return this.casesListWithHttpInfo(opts)
+    this.membershipsList = function(opts) {
+      return this.membershipsListWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -99,16 +96,16 @@
 
 
     /**
-     * Retrieve a single case video by ID
+     * Retrieve a single membership record
      * @param {Number} id Primary key of resource
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ModelCase} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Membership} and HTTP response
      */
-    this.videoDetailWithHttpInfo = function(id) {
+    this.membershipsRetrieveWithHttpInfo = function(id) {
       var postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling videoDetail");
+        throw new Error("Missing the required parameter 'id' when calling membershipsRetrieve");
       }
 
 
@@ -125,22 +122,22 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = ModelCase;
+      var returnType = Membership;
 
       return this.apiClient.callApi(
-        '/case/{id}/', 'GET',
+        '/membership/{id}/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Retrieve a single case video by ID
+     * Retrieve a single membership record
      * @param {Number} id Primary key of resource
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ModelCase}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Membership}
      */
-    this.videoDetail = function(id) {
-      return this.videoDetailWithHttpInfo(id)
+    this.membershipsRetrieve = function(id) {
+      return this.membershipsRetrieveWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

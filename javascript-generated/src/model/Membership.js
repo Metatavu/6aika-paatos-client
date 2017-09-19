@@ -36,7 +36,7 @@
   /**
    * The Membership model module.
    * @module model/Membership
-   * @version 0.0.0
+   * @version 0.0.1
    */
 
   /**
@@ -47,6 +47,16 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -65,11 +75,29 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('label')) {
+        obj['label'] = ApiClient.convertToType(data['label'], 'String');
+      }
+      if (data.hasOwnProperty('role')) {
+        obj['role'] = ApiClient.convertToType(data['role'], 'String');
+      }
+      if (data.hasOwnProperty('member')) {
+        obj['member'] = ApiClient.convertToType(data['member'], Object);
+      }
+      if (data.hasOwnProperty('person_id')) {
+        obj['person_id'] = ApiClient.convertToType(data['person_id'], 'String');
+      }
       if (data.hasOwnProperty('person')) {
         obj['person'] = Person.constructFromObject(data['person']);
       }
       if (data.hasOwnProperty('organization')) {
         obj['organization'] = Organization.constructFromObject(data['organization']);
+      }
+      if (data.hasOwnProperty('post_id')) {
+        obj['post_id'] = ApiClient.convertToType(data['post_id'], 'String');
       }
       if (data.hasOwnProperty('post')) {
         obj['post'] = Post.constructFromObject(data['post']);
@@ -77,10 +105,47 @@
       if (data.hasOwnProperty('on_behalf_of')) {
         obj['on_behalf_of'] = Organization.constructFromObject(data['on_behalf_of']);
       }
+      if (data.hasOwnProperty('start_date')) {
+        obj['start_date'] = ApiClient.convertToType(data['start_date'], 'Date');
+      }
+      if (data.hasOwnProperty('end_date')) {
+        obj['end_date'] = ApiClient.convertToType(data['end_date'], 'Date');
+      }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('updated_at')) {
+        obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+      }
     }
     return obj;
   }
 
+  /**
+   * The membership's unique identifier
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * A label describing the membership
+   * @member {String} label
+   */
+  exports.prototype['label'] = undefined;
+  /**
+   * The role that the member fulfills in the organization
+   * @member {String} role
+   */
+  exports.prototype['role'] = undefined;
+  /**
+   * The person or organization that is a member of the organization
+   * @member {Object} member
+   */
+  exports.prototype['member'] = undefined;
+  /**
+   * The ID of the person who is a member of the organization
+   * @member {String} person_id
+   */
+  exports.prototype['person_id'] = undefined;
   /**
    * The person who is a member of the organization
    * @member {module:model/Person} person
@@ -92,6 +157,11 @@
    */
   exports.prototype['organization'] = undefined;
   /**
+   * The ID of the post held by the member in the organization through this membership
+   * @member {String} post_id
+   */
+  exports.prototype['post_id'] = undefined;
+  /**
    * The post held by the member in the organization through this membership
    * @member {module:model/Post} post
    */
@@ -101,6 +171,26 @@
    * @member {module:model/Organization} on_behalf_of
    */
   exports.prototype['on_behalf_of'] = undefined;
+  /**
+   * The date on which the relationship began
+   * @member {Date} start_date
+   */
+  exports.prototype['start_date'] = undefined;
+  /**
+   * The date on which the relationship ended
+   * @member {Date} end_date
+   */
+  exports.prototype['end_date'] = undefined;
+  /**
+   * The time at which the resource was created
+   * @member {Date} created_at
+   */
+  exports.prototype['created_at'] = undefined;
+  /**
+   * The time at which the resource was last modified
+   * @member {Date} updated_at
+   */
+  exports.prototype['updated_at'] = undefined;
 
 
 

@@ -36,7 +36,7 @@
   /**
    * The Post model module.
    * @module model/Post
-   * @version 0.0.0
+   * @version 0.0.1
    */
 
   /**
@@ -47,6 +47,14 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
+
+
+
 
 
 
@@ -64,34 +72,98 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('label')) {
+        obj['label'] = ApiClient.convertToType(data['label'], 'String');
+      }
       if (data.hasOwnProperty('other_label')) {
         obj['other_label'] = ApiClient.convertToType(data['other_label'], ['String']);
+      }
+      if (data.hasOwnProperty('role')) {
+        obj['role'] = ApiClient.convertToType(data['role'], 'String');
       }
       if (data.hasOwnProperty('organization')) {
         obj['organization'] = Organization.constructFromObject(data['organization']);
       }
+      if (data.hasOwnProperty('area_id')) {
+        obj['area_id'] = ApiClient.convertToType(data['area_id'], 'String');
+      }
+      if (data.hasOwnProperty('start_date')) {
+        obj['start_date'] = ApiClient.convertToType(data['start_date'], 'Date');
+      }
+      if (data.hasOwnProperty('end_date')) {
+        obj['end_date'] = ApiClient.convertToType(data['end_date'], 'Date');
+      }
       if (data.hasOwnProperty('memberships')) {
         obj['memberships'] = ApiClient.convertToType(data['memberships'], [Membership]);
+      }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('updated_at')) {
+        obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
       }
     }
     return obj;
   }
 
   /**
+   * The post's unique identifier
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * A label describing the post
+   * @member {String} label
+   */
+  exports.prototype['label'] = undefined;
+  /**
    * An alternate label
    * @member {Array.<String>} other_label
    */
   exports.prototype['other_label'] = undefined;
+  /**
+   * The function that the holder of the post fulfills
+   * @member {String} role
+   */
+  exports.prototype['role'] = undefined;
   /**
    * The organization in which the post is held
    * @member {module:model/Organization} organization
    */
   exports.prototype['organization'] = undefined;
   /**
+   * The ID of the geographic area to which this post is related
+   * @member {String} area_id
+   */
+  exports.prototype['area_id'] = undefined;
+  /**
+   * The date on which the post was created
+   * @member {Date} start_date
+   */
+  exports.prototype['start_date'] = undefined;
+  /**
+   * The date on which the post was eliminated
+   * @member {Date} end_date
+   */
+  exports.prototype['end_date'] = undefined;
+  /**
    * The memberships through which people hold the post in the organization
    * @member {Array.<module:model/Membership>} memberships
    */
   exports.prototype['memberships'] = undefined;
+  /**
+   * The time at which the resource was created
+   * @member {Date} created_at
+   */
+  exports.prototype['created_at'] = undefined;
+  /**
+   * The time at which the resource was last modified
+   * @member {Date} updated_at
+   */
+  exports.prototype['updated_at'] = undefined;
 
 
 

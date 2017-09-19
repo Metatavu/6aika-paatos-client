@@ -36,7 +36,7 @@
   /**
    * The Organization model module.
    * @module model/Organization
-   * @version 0.0.0
+   * @version 0.0.1
    */
 
   /**
@@ -47,6 +47,17 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -67,11 +78,38 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('classification')) {
+        obj['classification'] = ApiClient.convertToType(data['classification'], 'String');
+      }
+      if (data.hasOwnProperty('parent_id')) {
+        obj['parent_id'] = ApiClient.convertToType(data['parent_id'], 'String');
+      }
       if (data.hasOwnProperty('parent')) {
         obj['parent'] = Organization.constructFromObject(data['parent']);
       }
       if (data.hasOwnProperty('area')) {
         obj['area'] = Area.constructFromObject(data['area']);
+      }
+      if (data.hasOwnProperty('abstract')) {
+        obj['abstract'] = ApiClient.convertToType(data['abstract'], 'String');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
+      if (data.hasOwnProperty('founding_date')) {
+        obj['founding_date'] = ApiClient.convertToType(data['founding_date'], 'Date');
+      }
+      if (data.hasOwnProperty('dissolution_date')) {
+        obj['dissolution_date'] = ApiClient.convertToType(data['dissolution_date'], 'Date');
+      }
+      if (data.hasOwnProperty('image')) {
+        obj['image'] = ApiClient.convertToType(data['image'], 'String');
       }
       if (data.hasOwnProperty('memberships')) {
         obj['memberships'] = ApiClient.convertToType(data['memberships'], [Membership]);
@@ -85,10 +123,36 @@
       if (data.hasOwnProperty('children')) {
         obj['children'] = ApiClient.convertToType(data['children'], [Organization]);
       }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('updated_at')) {
+        obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+      }
     }
     return obj;
   }
 
+  /**
+   * The organization's unique identifier
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * A primary name, e.g. a legally recognized name
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
+  /**
+   * An organization category, e.g. committee
+   * @member {String} classification
+   */
+  exports.prototype['classification'] = undefined;
+  /**
+   * The ID of the organization that contains this organization
+   * @member {String} parent_id
+   */
+  exports.prototype['parent_id'] = undefined;
   /**
    * The organization that contains this organization
    * @member {module:model/Organization} parent
@@ -99,6 +163,31 @@
    * @member {module:model/Area} area
    */
   exports.prototype['area'] = undefined;
+  /**
+   * A one-line description of an organization
+   * @member {String} abstract
+   */
+  exports.prototype['abstract'] = undefined;
+  /**
+   * An extended description of an organization
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
+  /**
+   * A date of founding
+   * @member {Date} founding_date
+   */
+  exports.prototype['founding_date'] = undefined;
+  /**
+   * A date of dissolution
+   * @member {Date} dissolution_date
+   */
+  exports.prototype['dissolution_date'] = undefined;
+  /**
+   * A URL of an image
+   * @member {String} image
+   */
+  exports.prototype['image'] = undefined;
   /**
    * The memberships of the members of the organization and of the organization itself
    * @member {Array.<module:model/Membership>} memberships
@@ -119,6 +208,16 @@
    * @member {Array.<module:model/Organization>} children
    */
   exports.prototype['children'] = undefined;
+  /**
+   * The time at which the resource was created
+   * @member {Date} created_at
+   */
+  exports.prototype['created_at'] = undefined;
+  /**
+   * The time at which the resource was last modified
+   * @member {Date} updated_at
+   */
+  exports.prototype['updated_at'] = undefined;
 
 
 

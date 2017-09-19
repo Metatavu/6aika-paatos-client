@@ -36,7 +36,7 @@
   /**
    * The VoteCount model module.
    * @module model/VoteCount
-   * @version 0.0.0
+   * @version 0.0.1
    */
 
   /**
@@ -52,6 +52,8 @@
 
     _this['option'] = option;
     _this['value'] = value;
+
+
   };
 
   /**
@@ -71,6 +73,12 @@
       if (data.hasOwnProperty('value')) {
         obj['value'] = ApiClient.convertToType(data['value'], 'Number');
       }
+      if (data.hasOwnProperty('group_id')) {
+        obj['group_id'] = ApiClient.convertToType(data['group_id'], 'String');
+      }
+      if (data.hasOwnProperty('group')) {
+        obj['group'] = ApiClient.convertToType(data['group'], Object);
+      }
     }
     return obj;
   }
@@ -85,6 +93,16 @@
    * @member {Number} value
    */
   exports.prototype['value'] = undefined;
+  /**
+   * The ID of a group of voters
+   * @member {String} group_id
+   */
+  exports.prototype['group_id'] = undefined;
+  /**
+   * A group of voters
+   * @member {Object} group
+   */
+  exports.prototype['group'] = undefined;
 
 
 
