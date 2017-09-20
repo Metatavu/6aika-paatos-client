@@ -36,7 +36,7 @@
   /**
    * The Attachment model module.
    * @module model/Attachment
-   * @version 0.0.4
+   * @version 0.0.5
    */
 
   /**
@@ -47,6 +47,12 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
+
 
 
 
@@ -63,26 +69,74 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
-      if (data.hasOwnProperty('file')) {
-        obj['file'] = ApiClient.convertToType(data['file'], 'String');
+      if (data.hasOwnProperty('data_source')) {
+        obj['data_source'] = ApiClient.convertToType(data['data_source'], 'String');
+      }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('modified_at')) {
+        obj['modified_at'] = ApiClient.convertToType(data['modified_at'], 'Date');
+      }
+      if (data.hasOwnProperty('origin_id')) {
+        obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
+      }
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('public')) {
+        obj['public'] = ApiClient.convertToType(data['public'], 'Boolean');
+      }
+      if (data.hasOwnProperty('confidentiality_reason')) {
+        obj['confidentiality_reason'] = ApiClient.convertToType(data['confidentiality_reason'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Unique identifier for this attachment. Formatted as IRI, composed of semantic namespace prefix and the identifier itself at end.
-   * @member {String} id
-   */
-  exports.prototype['id'] = undefined;
-  /**
    * URL pointing the attached file
-   * @member {String} file
+   * @member {String} url
    */
-  exports.prototype['file'] = undefined;
+  exports.prototype['url'] = undefined;
+  /**
+   * Data source of the attachment
+   * @member {String} data_source
+   */
+  exports.prototype['data_source'] = undefined;
+  /**
+   * The time at which the resource was created
+   * @member {Date} created_at
+   */
+  exports.prototype['created_at'] = undefined;
+  /**
+   * The time at which the resource was last modified
+   * @member {Date} modified_at
+   */
+  exports.prototype['modified_at'] = undefined;
+  /**
+   * Origin id of the attachment
+   * @member {String} origin_id
+   */
+  exports.prototype['origin_id'] = undefined;
+  /**
+   * name of the file
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
+  /**
+   * Is this attachment public?
+   * @member {Boolean} public
+   */
+  exports.prototype['public'] = undefined;
+  /**
+   * Reason for confidentiality
+   * @member {String} confidentiality_reason
+   */
+  exports.prototype['confidentiality_reason'] = undefined;
 
 
 
