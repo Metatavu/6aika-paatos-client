@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     'shell': {
       'javascript-generate': {
         command : 'java -jar swagger-codegen-cli.jar generate ' +
-          '-i https://raw.githubusercontent.com/6aika/api-paatos/master/paatos.swagger.yaml ' +
+          '-i ./paatos.swagger.yaml ' +
           '-l javascript ' +
           '-o javascript-generated/ ' +
           `--additional-properties usePromises=true,projectName=paatos-api-client,projectVersion=${JAVASCRIPT_VERSION}`
