@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Meta', 'model/Organization'], factory);
+    define(['ApiClient', 'model/Organization'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Meta'), require('./Organization'));
+    module.exports = factory(require('../ApiClient'), require('./Organization'));
   } else {
     // Browser globals (root is window)
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.InlineResponse2003 = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Meta, root.PaatosApiClient.Organization);
+    root.PaatosApiClient.InlineResponse2003 = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Organization);
   }
-}(this, function(ApiClient, Meta, Organization) {
+}(this, function(ApiClient, Organization) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The InlineResponse2003 model module.
    * @module model/InlineResponse2003
-   * @version 0.0.5
+   * @version 0.0.6
    */
 
   /**
@@ -46,6 +46,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -62,24 +64,41 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('meta')) {
-        obj['meta'] = Meta.constructFromObject(data['meta']);
+      if (data.hasOwnProperty('count')) {
+        obj['count'] = ApiClient.convertToType(data['count'], 'Number');
       }
-      if (data.hasOwnProperty('objects')) {
-        obj['objects'] = ApiClient.convertToType(data['objects'], [Organization]);
+      if (data.hasOwnProperty('next')) {
+        obj['next'] = ApiClient.convertToType(data['next'], 'String');
+      }
+      if (data.hasOwnProperty('previous')) {
+        obj['previous'] = ApiClient.convertToType(data['previous'], 'String');
+      }
+      if (data.hasOwnProperty('results')) {
+        obj['results'] = ApiClient.convertToType(data['results'], [Organization]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Meta} meta
+   * Total items count for the all collection
+   * @member {Number} count
    */
-  exports.prototype['meta'] = undefined;
+  exports.prototype['count'] = undefined;
   /**
-   * @member {Array.<module:model/Organization>} objects
+   * Uri of the next page relative to the current page settings.
+   * @member {String} next
    */
-  exports.prototype['objects'] = undefined;
+  exports.prototype['next'] = undefined;
+  /**
+   * Uri of the previous page relative to the current page settings.
+   * @member {String} previous
+   */
+  exports.prototype['previous'] = undefined;
+  /**
+   * @member {Array.<module:model/Organization>} results
+   */
+  exports.prototype['results'] = undefined;
 
 
 

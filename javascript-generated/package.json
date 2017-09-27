@@ -1,6 +1,6 @@
 {
   "name": "paatos-api-client",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "API_for_distributing_data_about_decisions_and_people_behind_those_decisions",
   "license": "Unlicense",
   "main": "src/index.js",

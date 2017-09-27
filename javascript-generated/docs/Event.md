@@ -3,19 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | The event&#39;s unique identifier | [optional] 
-**name** | **String** | The event&#39;s name | [optional] 
-**description** | **String** | The event&#39;s description | [optional] 
-**startDate** | **Date** | The time at which the event starts | [optional] 
-**endDate** | **String** | The time at which the event ends | [optional] 
-**location** | **String** | The event&#39;s location | [optional] 
-**status** | **String** | The event&#39;s status | [optional] 
-**classification** | **String** | The event&#39;s category | [optional] 
-**organizationId** | **String** | The ID of the organization organizing the event | [optional] 
-**organization** | [**Organization**](Organization.md) | The organization organizing the event | [optional] 
-**attendees** | [**[Person]**](Person.md) | People attending the event | [optional] 
-**parentId** | **String** | The ID of an event that this event is a part of | [optional] 
+**url** | **String** | The event&#39;s url | [optional] 
+**id** | **Number** | The event&#39;s unique identifier | [optional] 
+**dataSource** | **String** | The event&#39;s data source | [optional] 
+**actions** | **[String]** | The evvent&#39;s actions | [optional] 
 **createdAt** | **Date** | The time at which the resource was created | [optional] 
-**updatedAt** | **Date** | The time at which the resource was last modified | [optional] 
+**modifiedAt** | **Date** | The time at which the resource was last modified | [optional] 
+**originId** | **String** | The event&#39;s origin id | [optional] 
+**name** | **String** | The event&#39;s name | [optional] 
+**startDate** | **Date** | The time at which the event starts | [optional] 
+**endDate** | **Date** | The time at which the event ends | [optional] 
+**organization** | **String** | The url of the organization organizing the event | [optional] 
 
 

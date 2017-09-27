@@ -16,32 +16,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ModelCase'], factory);
+    define(['ApiClient', 'model/Event'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./ModelCase'));
+    module.exports = factory(require('../ApiClient'), require('./Event'));
   } else {
     // Browser globals (root is window)
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.InlineResponse200 = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.ModelCase);
+    root.PaatosApiClient.InlineResponse2006 = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Event);
   }
-}(this, function(ApiClient, ModelCase) {
+}(this, function(ApiClient, Event) {
   'use strict';
 
 
 
 
   /**
-   * The InlineResponse200 model module.
-   * @module model/InlineResponse200
+   * The InlineResponse2006 model module.
+   * @module model/InlineResponse2006
    * @version 0.0.6
    */
 
   /**
-   * Constructs a new <code>InlineResponse200</code>.
-   * @alias module:model/InlineResponse200
+   * Constructs a new <code>InlineResponse2006</code>.
+   * @alias module:model/InlineResponse2006
    * @class
    */
   var exports = function() {
@@ -54,11 +54,11 @@
   };
 
   /**
-   * Constructs a <code>InlineResponse200</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>InlineResponse2006</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/InlineResponse200} obj Optional instance to populate.
-   * @return {module:model/InlineResponse200} The populated <code>InlineResponse200</code> instance.
+   * @param {module:model/InlineResponse2006} obj Optional instance to populate.
+   * @return {module:model/InlineResponse2006} The populated <code>InlineResponse2006</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -74,7 +74,7 @@
         obj['previous'] = ApiClient.convertToType(data['previous'], 'String');
       }
       if (data.hasOwnProperty('results')) {
-        obj['results'] = ApiClient.convertToType(data['results'], [ModelCase]);
+        obj['results'] = ApiClient.convertToType(data['results'], [Event]);
       }
     }
     return obj;
@@ -96,7 +96,7 @@
    */
   exports.prototype['previous'] = undefined;
   /**
-   * @member {Array.<module:model/ModelCase>} results
+   * @member {Array.<module:model/Event>} results
    */
   exports.prototype['results'] = undefined;
 

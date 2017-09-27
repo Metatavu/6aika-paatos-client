@@ -5,7 +5,7 @@ All URIs are relative to *https://paatos-test.6aika.fi/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**casesList**](CasesApi.md#casesList) | **GET** /case/ | Retrieve a list of cases
-[**videoDetail**](CasesApi.md#videoDetail) | **GET** /case/{id}/ | Retrieve a single case video by ID
+[**casesRetrieve**](CasesApi.md#casesRetrieve) | **GET** /case/{id}/ | Retrieve a single case by ID
 
 
 <a name="casesList"></a>
@@ -52,11 +52,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="videoDetail"></a>
-# **videoDetail**
-> ModelCase videoDetail(id)
+<a name="casesRetrieve"></a>
+# **casesRetrieve**
+> ModelCase casesRetrieve(id)
 
-Retrieve a single case video by ID
+Retrieve a single case by ID
 
 ### Example
 ```javascript
@@ -66,7 +66,7 @@ var apiInstance = new PaatosApiClient.CasesApi();
 
 var id = 56; // Number | Primary key of resource
 
-apiInstance.videoDetail(id).then(function(data) {
+apiInstance.casesRetrieve(id).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);

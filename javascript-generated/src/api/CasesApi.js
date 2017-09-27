@@ -33,7 +33,7 @@
   /**
    * Cases service.
    * @module api/CasesApi
-   * @version 0.0.5
+   * @version 0.0.6
    */
 
   /**
@@ -99,16 +99,16 @@
 
 
     /**
-     * Retrieve a single case video by ID
+     * Retrieve a single case by ID
      * @param {Number} id Primary key of resource
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/ModelCase} and HTTP response
      */
-    this.videoDetailWithHttpInfo = function(id) {
+    this.casesRetrieveWithHttpInfo = function(id) {
       var postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling videoDetail");
+        throw new Error("Missing the required parameter 'id' when calling casesRetrieve");
       }
 
 
@@ -135,12 +135,12 @@
     }
 
     /**
-     * Retrieve a single case video by ID
+     * Retrieve a single case by ID
      * @param {Number} id Primary key of resource
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/ModelCase}
      */
-    this.videoDetail = function(id) {
-      return this.videoDetailWithHttpInfo(id)
+    this.casesRetrieve = function(id) {
+      return this.casesRetrieveWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });

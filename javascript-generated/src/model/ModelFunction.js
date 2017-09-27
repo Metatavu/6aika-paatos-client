@@ -25,7 +25,7 @@
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.Event = factory(root.PaatosApiClient.ApiClient);
+    root.PaatosApiClient.ModelFunction = factory(root.PaatosApiClient.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -34,15 +34,15 @@
 
 
   /**
-   * The Event model module.
-   * @module model/Event
+   * The ModelFunction model module.
+   * @module model/ModelFunction
    * @version 0.0.6
    */
 
   /**
-   * Constructs a new <code>Event</code>.
-   * An occurrence that people may attend
-   * @alias module:model/Event
+   * Constructs a new <code>ModelFunction</code>.
+   * A function
+   * @alias module:model/ModelFunction
    * @class
    */
   var exports = function() {
@@ -57,16 +57,14 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>Event</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ModelFunction</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Event} obj Optional instance to populate.
-   * @return {module:model/Event} The populated <code>Event</code> instance.
+   * @param {module:model/ModelFunction} obj Optional instance to populate.
+   * @return {module:model/ModelFunction} The populated <code>ModelFunction</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -81,9 +79,6 @@
       if (data.hasOwnProperty('data_source')) {
         obj['data_source'] = ApiClient.convertToType(data['data_source'], 'String');
       }
-      if (data.hasOwnProperty('actions')) {
-        obj['actions'] = ApiClient.convertToType(data['actions'], ['String']);
-      }
       if (data.hasOwnProperty('created_at')) {
         obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
       }
@@ -96,39 +91,31 @@
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
-      if (data.hasOwnProperty('start_date')) {
-        obj['start_date'] = ApiClient.convertToType(data['start_date'], 'Date');
+      if (data.hasOwnProperty('function_id')) {
+        obj['function_id'] = ApiClient.convertToType(data['function_id'], 'String');
       }
-      if (data.hasOwnProperty('end_date')) {
-        obj['end_date'] = ApiClient.convertToType(data['end_date'], 'Date');
-      }
-      if (data.hasOwnProperty('organization')) {
-        obj['organization'] = ApiClient.convertToType(data['organization'], 'String');
+      if (data.hasOwnProperty('parent')) {
+        obj['parent'] = ApiClient.convertToType(data['parent'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * The event's url
+   * The function's url
    * @member {String} url
    */
   exports.prototype['url'] = undefined;
   /**
-   * The event's unique identifier
+   * The function's unique identifier
    * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * The event's data source
+   * The function's data source
    * @member {String} data_source
    */
   exports.prototype['data_source'] = undefined;
-  /**
-   * The evvent's actions
-   * @member {Array.<String>} actions
-   */
-  exports.prototype['actions'] = undefined;
   /**
    * The time at which the resource was created
    * @member {Date} created_at
@@ -140,30 +127,25 @@
    */
   exports.prototype['modified_at'] = undefined;
   /**
-   * The event's origin id
+   * The function's origin id
    * @member {String} origin_id
    */
   exports.prototype['origin_id'] = undefined;
   /**
-   * The event's name
+   * The function's name
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
-   * The time at which the event starts
-   * @member {Date} start_date
+   * The actual function id
+   * @member {String} function_id
    */
-  exports.prototype['start_date'] = undefined;
+  exports.prototype['function_id'] = undefined;
   /**
-   * The time at which the event ends
-   * @member {Date} end_date
+   * URL to parent function
+   * @member {String} parent
    */
-  exports.prototype['end_date'] = undefined;
-  /**
-   * The url of the organization organizing the event
-   * @member {String} organization
-   */
-  exports.prototype['organization'] = undefined;
+  exports.prototype['parent'] = undefined;
 
 
 

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Meta', 'model/Post'], factory);
+    define(['ApiClient', 'model/Post'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Meta'), require('./Post'));
+    module.exports = factory(require('../ApiClient'), require('./Post'));
   } else {
     // Browser globals (root is window)
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.InlineResponse2005 = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Meta, root.PaatosApiClient.Post);
+    root.PaatosApiClient.InlineResponse2005 = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Post);
   }
-}(this, function(ApiClient, Meta, Post) {
+}(this, function(ApiClient, Post) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The InlineResponse2005 model module.
    * @module model/InlineResponse2005
-   * @version 0.0.5
+   * @version 0.0.6
    */
 
   /**
@@ -46,6 +46,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -62,24 +64,41 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('meta')) {
-        obj['meta'] = Meta.constructFromObject(data['meta']);
+      if (data.hasOwnProperty('count')) {
+        obj['count'] = ApiClient.convertToType(data['count'], 'Number');
       }
-      if (data.hasOwnProperty('objects')) {
-        obj['objects'] = ApiClient.convertToType(data['objects'], [Post]);
+      if (data.hasOwnProperty('next')) {
+        obj['next'] = ApiClient.convertToType(data['next'], 'String');
+      }
+      if (data.hasOwnProperty('previous')) {
+        obj['previous'] = ApiClient.convertToType(data['previous'], 'String');
+      }
+      if (data.hasOwnProperty('results')) {
+        obj['results'] = ApiClient.convertToType(data['results'], [Post]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Meta} meta
+   * Total items count for the all collection
+   * @member {Number} count
    */
-  exports.prototype['meta'] = undefined;
+  exports.prototype['count'] = undefined;
   /**
-   * @member {Array.<module:model/Post>} objects
+   * Uri of the next page relative to the current page settings.
+   * @member {String} next
    */
-  exports.prototype['objects'] = undefined;
+  exports.prototype['next'] = undefined;
+  /**
+   * Uri of the previous page relative to the current page settings.
+   * @member {String} previous
+   */
+  exports.prototype['previous'] = undefined;
+  /**
+   * @member {Array.<module:model/Post>} results
+   */
+  exports.prototype['results'] = undefined;
 
 
 

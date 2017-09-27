@@ -1,30 +1,30 @@
-# PaatosApiClient.ActionsApi
+# PaatosApiClient.FunctionsApi
 
 All URIs are relative to *https://paatos-test.6aika.fi/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**actionsList**](ActionsApi.md#actionsList) | **GET** /action/ | Retrieve a list of actions
-[**actionsRetrieve**](ActionsApi.md#actionsRetrieve) | **GET** /action/{id}/ | Retrieve a single action by ID
+[**functionsList**](FunctionsApi.md#functionsList) | **GET** /function/ | Retrieve a list of functions
+[**functionsRetrieve**](FunctionsApi.md#functionsRetrieve) | **GET** /function/{id}/ | Retrieve a single function by ID
 
 
-<a name="actionsList"></a>
-# **actionsList**
-> InlineResponse2001 actionsList(opts)
+<a name="functionsList"></a>
+# **functionsList**
+> InlineResponse2007 functionsList(opts)
 
-Retrieve a list of actions
+Retrieve a list of functions
 
 ### Example
 ```javascript
 var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new PaatosApiClient.ActionsApi();
+var apiInstance = new PaatosApiClient.FunctionsApi();
 
 var opts = { 
   'limit': 56, // Number | Specify the number of element to display per page.
   'offset': 56 // Number | Specify the offset to start displaying element on a page.
 };
-apiInstance.actionsList(opts).then(function(data) {
+apiInstance.functionsList(opts).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -41,7 +41,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -52,21 +52,21 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="actionsRetrieve"></a>
-# **actionsRetrieve**
-> Action actionsRetrieve(id)
+<a name="functionsRetrieve"></a>
+# **functionsRetrieve**
+> ModelFunction functionsRetrieve(id)
 
-Retrieve a single action by ID
+Retrieve a single function by ID
 
 ### Example
 ```javascript
 var PaatosApiClient = require('paatos-api-client');
 
-var apiInstance = new PaatosApiClient.ActionsApi();
+var apiInstance = new PaatosApiClient.FunctionsApi();
 
 var id = 56; // Number | Primary key of resource
 
-apiInstance.actionsRetrieve(id).then(function(data) {
+apiInstance.functionsRetrieve(id).then(function(data) {
   console.log('API called successfully. Returned data: ' + data);
 }, function(error) {
   console.error(error);
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Action**](Action.md)
+[**ModelFunction**](ModelFunction.md)
 
 ### Authorization
 

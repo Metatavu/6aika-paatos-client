@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/ContentHypertext'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./ContentHypertext'));
   } else {
     // Browser globals (root is window)
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.Content = factory(root.PaatosApiClient.ApiClient);
+    root.PaatosApiClient.Content = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.ContentHypertext);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, ContentHypertext) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Content model module.
    * @module model/Content
-   * @version 0.0.5
+   * @version 0.0.6
    */
 
   /**
@@ -66,25 +66,30 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
       if (data.hasOwnProperty('ordering')) {
         obj['ordering'] = ApiClient.convertToType(data['ordering'], 'Number');
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
       }
-      if (data.hasOwnProperty('origin_id')) {
-        obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
-      }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
       if (data.hasOwnProperty('hypertext')) {
-        obj['hypertext'] = ApiClient.convertToType(data['hypertext'], 'String');
+        obj['hypertext'] = ContentHypertext.constructFromObject(data['hypertext']);
       }
     }
     return obj;
   }
 
+  /**
+   * Unique identifier for this piece of content. Formatted as IRI, composed of semantic namespace prefix and the identifier itself at end.
+   * @member {String} id
+   */
+  exports.prototype['id'] = undefined;
   /**
    * Ordering of this content within the larger context
    * @member {Number} ordering
@@ -96,18 +101,12 @@
    */
   exports.prototype['title'] = undefined;
   /**
-   * Origin id for this content
-   * @member {String} origin_id
-   */
-  exports.prototype['origin_id'] = undefined;
-  /**
    * Type of this content (options include: decision, proposal, proceedings...)
    * @member {String} type
    */
   exports.prototype['type'] = undefined;
   /**
-   * Content formatted with pseudo-HTML. Only a very restricted set of tags is allowed. These are: first and second level headings (P+H1+H2) and table (more may be added, but start from a minimal set)
-   * @member {String} hypertext
+   * @member {module:model/ContentHypertext} hypertext
    */
   exports.prototype['hypertext'] = undefined;
 

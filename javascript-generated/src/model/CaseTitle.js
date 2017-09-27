@@ -36,7 +36,7 @@
   /**
    * The CaseTitle model module.
    * @module model/CaseTitle
-   * @version 0.0.5
+   * @version 0.0.6
    */
 
   /**

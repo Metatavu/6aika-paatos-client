@@ -33,7 +33,7 @@
   /**
    * Actions service.
    * @module api/ActionsApi
-   * @version 0.0.5
+   * @version 0.0.6
    */
 
   /**
@@ -99,7 +99,7 @@
 
 
     /**
-     * Retrieve a single video by ID
+     * Retrieve a single action by ID
      * @param {Number} id Primary key of resource
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Action} and HTTP response
      */
@@ -135,7 +135,7 @@
     }
 
     /**
-     * Retrieve a single video by ID
+     * Retrieve a single action by ID
      * @param {Number} id Primary key of resource
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Action}
      */

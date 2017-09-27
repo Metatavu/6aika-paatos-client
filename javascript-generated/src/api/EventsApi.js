@@ -16,29 +16,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/InlineResponse2005', 'model/Post'], factory);
+    define(['ApiClient', 'model/Event', 'model/InlineResponse2006'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/InlineResponse2005'), require('../model/Post'));
+    module.exports = factory(require('../ApiClient'), require('../model/Event'), require('../model/InlineResponse2006'));
   } else {
     // Browser globals (root is window)
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.PostsApi = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.InlineResponse2005, root.PaatosApiClient.Post);
+    root.PaatosApiClient.EventsApi = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Event, root.PaatosApiClient.InlineResponse2006);
   }
-}(this, function(ApiClient, InlineResponse2005, Post) {
+}(this, function(ApiClient, Event, InlineResponse2006) {
   'use strict';
 
   /**
-   * Posts service.
-   * @module api/PostsApi
+   * Events service.
+   * @module api/EventsApi
    * @version 0.0.6
    */
 
   /**
-   * Constructs a new PostsApi. 
-   * @alias module:api/PostsApi
+   * Constructs a new EventsApi. 
+   * @alias module:api/EventsApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -49,13 +49,14 @@
 
 
     /**
-     * Retrieve a list of posts
+     * Retrieve a list of events
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.pageSize request that server delivers page_size results in response
-     * @param {Number} opts.page request particular page in paginated results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2005} and HTTP response
+     * @param {Number} opts.limit Specify the number of element to display per page.
+     * @param {Number} opts.offset Specify the offset to start displaying element on a page.
+     * @param {Number} opts.organization Filter by organization id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InlineResponse2006} and HTTP response
      */
-    this.postsListWithHttpInfo = function(opts) {
+    this.eventsListWithHttpInfo = function(opts) {
       opts = opts || {};
       var postBody = null;
 
@@ -63,8 +64,9 @@
       var pathParams = {
       };
       var queryParams = {
-        'page_size': opts['pageSize'],
-        'page': opts['page']
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'organization': opts['organization']
       };
       var headerParams = {
       };
@@ -74,24 +76,25 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = InlineResponse2005;
+      var returnType = InlineResponse2006;
 
       return this.apiClient.callApi(
-        '/post/', 'GET',
+        '/event/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Retrieve a list of posts
+     * Retrieve a list of events
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.pageSize request that server delivers page_size results in response
-     * @param {Number} opts.page request particular page in paginated results
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2005}
+     * @param {Number} opts.limit Specify the number of element to display per page.
+     * @param {Number} opts.offset Specify the offset to start displaying element on a page.
+     * @param {Number} opts.organization Filter by organization id
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InlineResponse2006}
      */
-    this.postsList = function(opts) {
-      return this.postsListWithHttpInfo(opts)
+    this.eventsList = function(opts) {
+      return this.eventsListWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -99,16 +102,16 @@
 
 
     /**
-     * Retrieve a single post record
+     * Retrieve a single event by ID
      * @param {Number} id Primary key of resource
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Post} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Event} and HTTP response
      */
-    this.postsRetrieveWithHttpInfo = function(id) {
+    this.eventsRetrieveWithHttpInfo = function(id) {
       var postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling postsRetrieve");
+        throw new Error("Missing the required parameter 'id' when calling eventsRetrieve");
       }
 
 
@@ -125,22 +128,22 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = Post;
+      var returnType = Event;
 
       return this.apiClient.callApi(
-        '/post/{id}/', 'GET',
+        '/event/{id}/', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType
       );
     }
 
     /**
-     * Retrieve a single post record
+     * Retrieve a single event by ID
      * @param {Number} id Primary key of resource
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Post}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Event}
      */
-    this.postsRetrieve = function(id) {
-      return this.postsRetrieveWithHttpInfo(id)
+    this.eventsRetrieve = function(id) {
+      return this.eventsRetrieveWithHttpInfo(id)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
