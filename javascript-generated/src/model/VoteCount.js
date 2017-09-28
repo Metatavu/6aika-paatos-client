@@ -36,7 +36,7 @@
   /**
    * The VoteCount model module.
    * @module model/VoteCount
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**

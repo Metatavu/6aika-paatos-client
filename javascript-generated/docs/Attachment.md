@@ -3,7 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Unique identifier for this attachment. Formatted as IRI, composed of semantic namespace prefix and the identifier itself at end. | [optional] 
-**file** | **String** | URL pointing the attached file | [optional] 
+**url** | **String** | URL pointing the attached file | [optional] 
+**dataSource** | **String** | The attachment&#39;s data source | [optional] 
+**createdAt** | **Date** | The time at which the resource was created | [optional] 
+**modifiedAt** | **Date** | The time at which the resource was last modified | [optional] 
+**originId** | **String** | The attachment&#39;s origin id | [optional] 
+**name** | **String** | The attachment&#39;s name | [optional] 
+**_public** | **Boolean** | Is the attachment public | [optional] 
+**confidentialityReason** | **String** | The attachment&#39;s confidentiality reason | [optional] 
 
 

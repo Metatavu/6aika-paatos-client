@@ -33,7 +33,7 @@
   /**
    * Posts service.
    * @module api/PostsApi
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**

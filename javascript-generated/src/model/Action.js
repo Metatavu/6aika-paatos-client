@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Content', 'model/ModelCase', 'model/Organization', 'model/Post', 'model/VoteEvent'], factory);
+    define(['ApiClient', 'model/Attachment', 'model/Content'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Content'), require('./ModelCase'), require('./Organization'), require('./Post'), require('./VoteEvent'));
+    module.exports = factory(require('../ApiClient'), require('./Attachment'), require('./Content'));
   } else {
     // Browser globals (root is window)
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.Action = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Content, root.PaatosApiClient.ModelCase, root.PaatosApiClient.Organization, root.PaatosApiClient.Post, root.PaatosApiClient.VoteEvent);
+    root.PaatosApiClient.Action = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Attachment, root.PaatosApiClient.Content);
   }
-}(this, function(ApiClient, Content, ModelCase, Organization, Post, VoteEvent) {
+}(this, function(ApiClient, Attachment, Content) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Action model module.
    * @module model/Action
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**
@@ -47,6 +47,12 @@
    */
   var exports = function() {
     var _this = this;
+
+
+
+
+
+
 
 
 
@@ -70,14 +76,32 @@
     if (data) {
       obj = obj || new exports();
 
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
+      }
       if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+      }
+      if (data.hasOwnProperty('data_source')) {
+        obj['data_source'] = ApiClient.convertToType(data['data_source'], 'String');
+      }
+      if (data.hasOwnProperty('contents')) {
+        obj['contents'] = ApiClient.convertToType(data['contents'], [Content]);
+      }
+      if (data.hasOwnProperty('attachments')) {
+        obj['attachments'] = ApiClient.convertToType(data['attachments'], [Attachment]);
+      }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('modified_at')) {
+        obj['modified_at'] = ApiClient.convertToType(data['modified_at'], 'Date');
+      }
+      if (data.hasOwnProperty('origin_id')) {
+        obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
       }
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
-      }
-      if (data.hasOwnProperty('case')) {
-        obj['case'] = ModelCase.constructFromObject(data['case']);
       }
       if (data.hasOwnProperty('ordering')) {
         obj['ordering'] = ApiClient.convertToType(data['ordering'], 'Number');
@@ -85,37 +109,67 @@
       if (data.hasOwnProperty('article_number')) {
         obj['article_number'] = ApiClient.convertToType(data['article_number'], 'String');
       }
-      if (data.hasOwnProperty('responsible_party')) {
-        obj['responsible_party'] = Organization.constructFromObject(data['responsible_party']);
+      if (data.hasOwnProperty('resolution')) {
+        obj['resolution'] = ApiClient.convertToType(data['resolution'], 'String');
       }
-      if (data.hasOwnProperty('delegate_post')) {
-        obj['delegate_post'] = Post.constructFromObject(data['delegate_post']);
+      if (data.hasOwnProperty('case')) {
+        obj['case'] = ApiClient.convertToType(data['case'], 'String');
       }
-      if (data.hasOwnProperty('content')) {
-        obj['content'] = Content.constructFromObject(data['content']);
+      if (data.hasOwnProperty('post')) {
+        obj['post'] = ApiClient.convertToType(data['post'], 'String');
       }
-      if (data.hasOwnProperty('votes')) {
-        obj['votes'] = ApiClient.convertToType(data['votes'], [VoteEvent]);
+      if (data.hasOwnProperty('event')) {
+        obj['event'] = ApiClient.convertToType(data['event'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * Unique identifier for this action
-   * @member {String} id
+   * The action's url
+   * @member {String} url
+   */
+  exports.prototype['url'] = undefined;
+  /**
+   * The action's unique identifier
+   * @member {Number} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * The action's data source
+   * @member {String} data_source
+   */
+  exports.prototype['data_source'] = undefined;
+  /**
+   * Array of contents
+   * @member {Array.<module:model/Content>} contents
+   */
+  exports.prototype['contents'] = undefined;
+  /**
+   * Array of attachments
+   * @member {Array.<module:model/Attachment>} attachments
+   */
+  exports.prototype['attachments'] = undefined;
+  /**
+   * The time at which the resource was created
+   * @member {Date} created_at
+   */
+  exports.prototype['created_at'] = undefined;
+  /**
+   * The time at which the resource was last modified
+   * @member {Date} modified_at
+   */
+  exports.prototype['modified_at'] = undefined;
+  /**
+   * The event's origin id
+   * @member {String} origin_id
+   */
+  exports.prototype['origin_id'] = undefined;
   /**
    * Title of the action
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
-  /**
-   * Case this action is related to
-   * @member {module:model/ModelCase} case
-   */
-  exports.prototype['case'] = undefined;
   /**
    * Ordering of this action within a meeting (or possibly arbitrary ordering)
    * @member {Number} ordering
@@ -127,24 +181,25 @@
    */
   exports.prototype['article_number'] = undefined;
   /**
-   * The city organization responsible for this decision. If decision is delegated, this is the organization that delegated the authority.
-   * @member {module:model/Organization} responsible_party
+   * Action's resolution
+   * @member {String} resolution
    */
-  exports.prototype['responsible_party'] = undefined;
+  exports.prototype['resolution'] = undefined;
   /**
-   * If this decision was delegated, this field will be filled and refers to the post that made the decision
-   * @member {module:model/Post} delegate_post
+   * Case url this action is related to
+   * @member {String} case
    */
-  exports.prototype['delegate_post'] = undefined;
+  exports.prototype['case'] = undefined;
   /**
-   * @member {module:model/Content} content
+   * Post url
+   * @member {String} post
    */
-  exports.prototype['content'] = undefined;
+  exports.prototype['post'] = undefined;
   /**
-   * Votes taken during this action.
-   * @member {Array.<module:model/VoteEvent>} votes
+   * Event url this action is related to
+   * @member {String} event
    */
-  exports.prototype['votes'] = undefined;
+  exports.prototype['event'] = undefined;
 
 
 

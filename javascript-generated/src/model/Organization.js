@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Area', 'model/Membership', 'model/Organization', 'model/Post', 'model/VoteEvent'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Area'), require('./Membership'), require('./Organization'), require('./Post'), require('./VoteEvent'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.Organization = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Area, root.PaatosApiClient.Membership, root.PaatosApiClient.Organization, root.PaatosApiClient.Post, root.PaatosApiClient.VoteEvent);
+    root.PaatosApiClient.Organization = factory(root.PaatosApiClient.ApiClient);
   }
-}(this, function(ApiClient, Area, Membership, Organization, Post, VoteEvent) {
+}(this, function(ApiClient) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The Organization model module.
    * @module model/Organization
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**
@@ -47,10 +47,6 @@
    */
   var exports = function() {
     var _this = this;
-
-
-
-
 
 
 
@@ -78,29 +74,35 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+      }
+      if (data.hasOwnProperty('data_source')) {
+        obj['data_source'] = ApiClient.convertToType(data['data_source'], 'String');
+      }
+      if (data.hasOwnProperty('events')) {
+        obj['events'] = ApiClient.convertToType(data['events'], ['String']);
+      }
+      if (data.hasOwnProperty('posts')) {
+        obj['posts'] = ApiClient.convertToType(data['posts'], ['String']);
+      }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('modified_at')) {
+        obj['modified_at'] = ApiClient.convertToType(data['modified_at'], 'Date');
+      }
+      if (data.hasOwnProperty('origin_id')) {
+        obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
       }
       if (data.hasOwnProperty('classification')) {
         obj['classification'] = ApiClient.convertToType(data['classification'], 'String');
       }
-      if (data.hasOwnProperty('parent_id')) {
-        obj['parent_id'] = ApiClient.convertToType(data['parent_id'], 'String');
-      }
-      if (data.hasOwnProperty('parent')) {
-        obj['parent'] = Organization.constructFromObject(data['parent']);
-      }
-      if (data.hasOwnProperty('area')) {
-        obj['area'] = Area.constructFromObject(data['area']);
-      }
-      if (data.hasOwnProperty('abstract')) {
-        obj['abstract'] = ApiClient.convertToType(data['abstract'], 'String');
-      }
-      if (data.hasOwnProperty('description')) {
-        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
       if (data.hasOwnProperty('founding_date')) {
         obj['founding_date'] = ApiClient.convertToType(data['founding_date'], 'Date');
@@ -108,106 +110,38 @@
       if (data.hasOwnProperty('dissolution_date')) {
         obj['dissolution_date'] = ApiClient.convertToType(data['dissolution_date'], 'Date');
       }
-      if (data.hasOwnProperty('image')) {
-        obj['image'] = ApiClient.convertToType(data['image'], 'String');
-      }
-      if (data.hasOwnProperty('memberships')) {
-        obj['memberships'] = ApiClient.convertToType(data['memberships'], [Membership]);
-      }
-      if (data.hasOwnProperty('posts')) {
-        obj['posts'] = ApiClient.convertToType(data['posts'], [Post]);
-      }
-      if (data.hasOwnProperty('vote_events')) {
-        obj['vote_events'] = ApiClient.convertToType(data['vote_events'], [VoteEvent]);
-      }
-      if (data.hasOwnProperty('children')) {
-        obj['children'] = ApiClient.convertToType(data['children'], [Organization]);
-      }
-      if (data.hasOwnProperty('created_at')) {
-        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
-      }
-      if (data.hasOwnProperty('updated_at')) {
-        obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+      if (data.hasOwnProperty('parent')) {
+        obj['parent'] = ApiClient.convertToType(data['parent'], 'String');
       }
     }
     return obj;
   }
 
   /**
+   * The organization's url
+   * @member {String} url
+   */
+  exports.prototype['url'] = undefined;
+  /**
    * The organization's unique identifier
-   * @member {String} id
+   * @member {Number} id
    */
   exports.prototype['id'] = undefined;
   /**
-   * A primary name, e.g. a legally recognized name
-   * @member {String} name
+   * The organization's data source
+   * @member {String} data_source
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['data_source'] = undefined;
   /**
-   * An organization category, e.g. committee
-   * @member {String} classification
+   * The organization's events
+   * @member {Array.<String>} events
    */
-  exports.prototype['classification'] = undefined;
+  exports.prototype['events'] = undefined;
   /**
-   * The ID of the organization that contains this organization
-   * @member {String} parent_id
-   */
-  exports.prototype['parent_id'] = undefined;
-  /**
-   * The organization that contains this organization
-   * @member {module:model/Organization} parent
-   */
-  exports.prototype['parent'] = undefined;
-  /**
-   * The geographic area to which this organization is related
-   * @member {module:model/Area} area
-   */
-  exports.prototype['area'] = undefined;
-  /**
-   * A one-line description of an organization
-   * @member {String} abstract
-   */
-  exports.prototype['abstract'] = undefined;
-  /**
-   * An extended description of an organization
-   * @member {String} description
-   */
-  exports.prototype['description'] = undefined;
-  /**
-   * A date of founding
-   * @member {Date} founding_date
-   */
-  exports.prototype['founding_date'] = undefined;
-  /**
-   * A date of dissolution
-   * @member {Date} dissolution_date
-   */
-  exports.prototype['dissolution_date'] = undefined;
-  /**
-   * A URL of an image
-   * @member {String} image
-   */
-  exports.prototype['image'] = undefined;
-  /**
-   * The memberships of the members of the organization and of the organization itself
-   * @member {Array.<module:model/Membership>} memberships
-   */
-  exports.prototype['memberships'] = undefined;
-  /**
-   * Posts within the organization
-   * @member {Array.<module:model/Post>} posts
+   * The organization's posts
+   * @member {Array.<String>} posts
    */
   exports.prototype['posts'] = undefined;
-  /**
-   * Vote events in which members of the organization are voting
-   * @member {Array.<module:model/VoteEvent>} vote_events
-   */
-  exports.prototype['vote_events'] = undefined;
-  /**
-   * The sub-organizations of the organization
-   * @member {Array.<module:model/Organization>} children
-   */
-  exports.prototype['children'] = undefined;
   /**
    * The time at which the resource was created
    * @member {Date} created_at
@@ -215,9 +149,39 @@
   exports.prototype['created_at'] = undefined;
   /**
    * The time at which the resource was last modified
-   * @member {Date} updated_at
+   * @member {Date} modified_at
    */
-  exports.prototype['updated_at'] = undefined;
+  exports.prototype['modified_at'] = undefined;
+  /**
+   * The organization's origin id
+   * @member {String} origin_id
+   */
+  exports.prototype['origin_id'] = undefined;
+  /**
+   * The organization's classification
+   * @member {String} classification
+   */
+  exports.prototype['classification'] = undefined;
+  /**
+   * The organization's name
+   * @member {String} name
+   */
+  exports.prototype['name'] = undefined;
+  /**
+   * The time at which the organization was founded
+   * @member {Date} founding_date
+   */
+  exports.prototype['founding_date'] = undefined;
+  /**
+   * The time at which the organization was dissolved
+   * @member {Date} dissolution_date
+   */
+  exports.prototype['dissolution_date'] = undefined;
+  /**
+   * The url of the organization's parent organization
+   * @member {String} parent
+   */
+  exports.prototype['parent'] = undefined;
 
 
 

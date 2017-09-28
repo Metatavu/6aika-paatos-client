@@ -33,7 +33,7 @@
   /**
    * Actions service.
    * @module api/ActionsApi
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**

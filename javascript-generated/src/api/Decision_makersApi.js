@@ -33,7 +33,7 @@
   /**
    * Decision_makers service.
    * @module api/Decision_makersApi
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**

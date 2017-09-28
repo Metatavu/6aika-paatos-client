@@ -16,33 +16,33 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/GeometryGeometry'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./GeometryGeometry'));
   } else {
     // Browser globals (root is window)
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.Content = factory(root.PaatosApiClient.ApiClient);
+    root.PaatosApiClient.Geometry = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.GeometryGeometry);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, GeometryGeometry) {
   'use strict';
 
 
 
 
   /**
-   * The Content model module.
-   * @module model/Content
+   * The Geometry model module.
+   * @module model/Geometry
    * @version 0.0.7
    */
 
   /**
-   * Constructs a new <code>Content</code>.
-   * Content objects contain the text describing actions takens on cases and the cases themselves. They consist of metadata and the actual content as HTML-formatted text.
-   * @alias module:model/Content
+   * Constructs a new <code>Geometry</code>.
+   * Single geometry object
+   * @alias module:model/Geometry
    * @class
    */
   var exports = function() {
@@ -55,15 +55,14 @@
 
 
 
-
   };
 
   /**
-   * Constructs a <code>Content</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Geometry</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Content} obj Optional instance to populate.
-   * @return {module:model/Content} The populated <code>Content</code> instance.
+   * @param {module:model/Geometry} obj Optional instance to populate.
+   * @return {module:model/Geometry} The populated <code>Geometry</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -81,24 +80,21 @@
       if (data.hasOwnProperty('origin_id')) {
         obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
       }
-      if (data.hasOwnProperty('ordering')) {
-        obj['ordering'] = ApiClient.convertToType(data['ordering'], 'Number');
-      }
-      if (data.hasOwnProperty('title')) {
-        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
-      if (data.hasOwnProperty('hypertext')) {
-        obj['hypertext'] = ApiClient.convertToType(data['hypertext'], 'String');
+      if (data.hasOwnProperty('geometry')) {
+        obj['geometry'] = GeometryGeometry.constructFromObject(data['geometry']);
       }
     }
     return obj;
   }
 
   /**
-   * The content's data source
+   * The geometry's data source
    * @member {String} data_source
    */
   exports.prototype['data_source'] = undefined;
@@ -113,30 +109,24 @@
    */
   exports.prototype['modified_at'] = undefined;
   /**
-   * The content's origin id
+   * The geometry's origin id
    * @member {String} origin_id
    */
   exports.prototype['origin_id'] = undefined;
   /**
-   * Ordering of this content within the larger context
-   * @member {Number} ordering
+   * The geometry's name
+   * @member {String} name
    */
-  exports.prototype['ordering'] = undefined;
+  exports.prototype['name'] = undefined;
   /**
-   * The content's title
-   * @member {String} title
-   */
-  exports.prototype['title'] = undefined;
-  /**
-   * The content's type
+   * The geometry's type
    * @member {String} type
    */
   exports.prototype['type'] = undefined;
   /**
-   * Content formatted with pseudo-HTML. Only a very restricted set of tags is allowed. These are: first and second level headings (P+H1+H2) and table (more may be added, but start from a minimal set)
-   * @member {String} hypertext
+   * @member {module:model/GeometryGeometry} geometry
    */
-  exports.prototype['hypertext'] = undefined;
+  exports.prototype['geometry'] = undefined;
 
 
 

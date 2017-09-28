@@ -36,7 +36,7 @@
   /**
    * The Person model module.
    * @module model/Person
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**

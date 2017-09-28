@@ -36,7 +36,7 @@
   /**
    * The ModelFunction model module.
    * @module model/ModelFunction
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**

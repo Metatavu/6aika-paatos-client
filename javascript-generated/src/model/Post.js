@@ -36,7 +36,7 @@
   /**
    * The Post model module.
    * @module model/Post
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**

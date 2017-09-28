@@ -33,7 +33,7 @@
   /**
    * Functions service.
    * @module api/FunctionsApi
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**

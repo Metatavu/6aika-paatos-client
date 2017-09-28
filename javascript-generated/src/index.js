@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Action', 'model/Area', 'model/Attachment', 'model/CaseRelatedCases', 'model/CaseSummary', 'model/CaseTitle', 'model/Content', 'model/ContentHypertext', 'model/Event', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse2002', 'model/InlineResponse2003', 'model/InlineResponse2004', 'model/InlineResponse2005', 'model/InlineResponse2006', 'model/InlineResponse2007', 'model/Membership', 'model/Meta', 'model/ModelCase', 'model/ModelFunction', 'model/Organization', 'model/Person', 'model/Post', 'model/VoteCount', 'model/VoteEvent', 'api/ActionsApi', 'api/CasesApi', 'api/Decision_makersApi', 'api/EventsApi', 'api/FunctionsApi', 'api/MembershipsApi', 'api/OrganizationsApi', 'api/PersonsApi', 'api/PostsApi'], factory);
+    define(['ApiClient', 'model/Action', 'model/Area', 'model/Attachment', 'model/Content', 'model/Event', 'model/Geometry', 'model/GeometryGeometry', 'model/InlineResponse200', 'model/InlineResponse2001', 'model/InlineResponse2002', 'model/InlineResponse2003', 'model/InlineResponse2004', 'model/InlineResponse2005', 'model/InlineResponse2006', 'model/InlineResponse2007', 'model/Membership', 'model/Meta', 'model/ModelCase', 'model/ModelFunction', 'model/Organization', 'model/Person', 'model/Post', 'model/VoteCount', 'model/VoteEvent', 'api/ActionsApi', 'api/CasesApi', 'api/Decision_makersApi', 'api/EventsApi', 'api/FunctionsApi', 'api/MembershipsApi', 'api/OrganizationsApi', 'api/PersonsApi', 'api/PostsApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Action'), require('./model/Area'), require('./model/Attachment'), require('./model/CaseRelatedCases'), require('./model/CaseSummary'), require('./model/CaseTitle'), require('./model/Content'), require('./model/ContentHypertext'), require('./model/Event'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse2002'), require('./model/InlineResponse2003'), require('./model/InlineResponse2004'), require('./model/InlineResponse2005'), require('./model/InlineResponse2006'), require('./model/InlineResponse2007'), require('./model/Membership'), require('./model/Meta'), require('./model/ModelCase'), require('./model/ModelFunction'), require('./model/Organization'), require('./model/Person'), require('./model/Post'), require('./model/VoteCount'), require('./model/VoteEvent'), require('./api/ActionsApi'), require('./api/CasesApi'), require('./api/Decision_makersApi'), require('./api/EventsApi'), require('./api/FunctionsApi'), require('./api/MembershipsApi'), require('./api/OrganizationsApi'), require('./api/PersonsApi'), require('./api/PostsApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/Action'), require('./model/Area'), require('./model/Attachment'), require('./model/Content'), require('./model/Event'), require('./model/Geometry'), require('./model/GeometryGeometry'), require('./model/InlineResponse200'), require('./model/InlineResponse2001'), require('./model/InlineResponse2002'), require('./model/InlineResponse2003'), require('./model/InlineResponse2004'), require('./model/InlineResponse2005'), require('./model/InlineResponse2006'), require('./model/InlineResponse2007'), require('./model/Membership'), require('./model/Meta'), require('./model/ModelCase'), require('./model/ModelFunction'), require('./model/Organization'), require('./model/Person'), require('./model/Post'), require('./model/VoteCount'), require('./model/VoteEvent'), require('./api/ActionsApi'), require('./api/CasesApi'), require('./api/Decision_makersApi'), require('./api/EventsApi'), require('./api/FunctionsApi'), require('./api/MembershipsApi'), require('./api/OrganizationsApi'), require('./api/PersonsApi'), require('./api/PostsApi'));
   }
-}(function(ApiClient, Action, Area, Attachment, CaseRelatedCases, CaseSummary, CaseTitle, Content, ContentHypertext, Event, InlineResponse200, InlineResponse2001, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, InlineResponse2006, InlineResponse2007, Membership, Meta, ModelCase, ModelFunction, Organization, Person, Post, VoteCount, VoteEvent, ActionsApi, CasesApi, Decision_makersApi, EventsApi, FunctionsApi, MembershipsApi, OrganizationsApi, PersonsApi, PostsApi) {
+}(function(ApiClient, Action, Area, Attachment, Content, Event, Geometry, GeometryGeometry, InlineResponse200, InlineResponse2001, InlineResponse2002, InlineResponse2003, InlineResponse2004, InlineResponse2005, InlineResponse2006, InlineResponse2007, Membership, Meta, ModelCase, ModelFunction, Organization, Person, Post, VoteCount, VoteEvent, ActionsApi, CasesApi, Decision_makersApi, EventsApi, FunctionsApi, MembershipsApi, OrganizationsApi, PersonsApi, PostsApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 0.0.6
+   * @version 0.0.7
    */
   var exports = {
     /**
@@ -77,35 +77,25 @@
      */
     Attachment: Attachment,
     /**
-     * The CaseRelatedCases model constructor.
-     * @property {module:model/CaseRelatedCases}
-     */
-    CaseRelatedCases: CaseRelatedCases,
-    /**
-     * The CaseSummary model constructor.
-     * @property {module:model/CaseSummary}
-     */
-    CaseSummary: CaseSummary,
-    /**
-     * The CaseTitle model constructor.
-     * @property {module:model/CaseTitle}
-     */
-    CaseTitle: CaseTitle,
-    /**
      * The Content model constructor.
      * @property {module:model/Content}
      */
     Content: Content,
     /**
-     * The ContentHypertext model constructor.
-     * @property {module:model/ContentHypertext}
-     */
-    ContentHypertext: ContentHypertext,
-    /**
      * The Event model constructor.
      * @property {module:model/Event}
      */
     Event: Event,
+    /**
+     * The Geometry model constructor.
+     * @property {module:model/Geometry}
+     */
+    Geometry: Geometry,
+    /**
+     * The GeometryGeometry model constructor.
+     * @property {module:model/GeometryGeometry}
+     */
+    GeometryGeometry: GeometryGeometry,
     /**
      * The InlineResponse200 model constructor.
      * @property {module:model/InlineResponse200}

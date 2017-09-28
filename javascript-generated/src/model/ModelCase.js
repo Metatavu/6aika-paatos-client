@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Area', 'model/Attachment', 'model/CaseRelatedCases', 'model/CaseSummary', 'model/CaseTitle'], factory);
+    define(['ApiClient', 'model/Attachment', 'model/Geometry'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Area'), require('./Attachment'), require('./CaseRelatedCases'), require('./CaseSummary'), require('./CaseTitle'));
+    module.exports = factory(require('../ApiClient'), require('./Attachment'), require('./Geometry'));
   } else {
     // Browser globals (root is window)
     if (!root.PaatosApiClient) {
       root.PaatosApiClient = {};
     }
-    root.PaatosApiClient.ModelCase = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Area, root.PaatosApiClient.Attachment, root.PaatosApiClient.CaseRelatedCases, root.PaatosApiClient.CaseSummary, root.PaatosApiClient.CaseTitle);
+    root.PaatosApiClient.ModelCase = factory(root.PaatosApiClient.ApiClient, root.PaatosApiClient.Attachment, root.PaatosApiClient.Geometry);
   }
-}(this, function(ApiClient, Area, Attachment, CaseRelatedCases, CaseSummary, CaseTitle) {
+}(this, function(ApiClient, Attachment, Geometry) {
   'use strict';
 
 
@@ -36,7 +36,7 @@
   /**
    * The ModelCase model module.
    * @module model/ModelCase
-   * @version 0.0.6
+   * @version 0.0.7
    */
 
   /**
@@ -47,6 +47,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -72,96 +73,106 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('title')) {
-        obj['title'] = CaseTitle.constructFromObject(data['title']);
+      if (data.hasOwnProperty('url')) {
+        obj['url'] = ApiClient.convertToType(data['url'], 'String');
       }
-      if (data.hasOwnProperty('summary')) {
-        obj['summary'] = CaseSummary.constructFromObject(data['summary']);
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'Number');
+      }
+      if (data.hasOwnProperty('data_source')) {
+        obj['data_source'] = ApiClient.convertToType(data['data_source'], 'String');
+      }
+      if (data.hasOwnProperty('actions')) {
+        obj['actions'] = ApiClient.convertToType(data['actions'], ['String']);
+      }
+      if (data.hasOwnProperty('geometries')) {
+        obj['geometries'] = ApiClient.convertToType(data['geometries'], [Geometry]);
+      }
+      if (data.hasOwnProperty('created_at')) {
+        obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+      }
+      if (data.hasOwnProperty('modified_at')) {
+        obj['modified_at'] = ApiClient.convertToType(data['modified_at'], 'Date');
+      }
+      if (data.hasOwnProperty('origin_id')) {
+        obj['origin_id'] = ApiClient.convertToType(data['origin_id'], 'String');
+      }
+      if (data.hasOwnProperty('title')) {
+        obj['title'] = ApiClient.convertToType(data['title'], 'String');
+      }
+      if (data.hasOwnProperty('register_id')) {
+        obj['register_id'] = ApiClient.convertToType(data['register_id'], 'String');
+      }
+      if (data.hasOwnProperty('function')) {
+        obj['function'] = ApiClient.convertToType(data['function'], 'String');
       }
       if (data.hasOwnProperty('attachments')) {
         obj['attachments'] = ApiClient.convertToType(data['attachments'], [Attachment]);
-      }
-      if (data.hasOwnProperty('category')) {
-        obj['category'] = ApiClient.convertToType(data['category'], 'String');
-      }
-      if (data.hasOwnProperty('area')) {
-        obj['area'] = ApiClient.convertToType(data['area'], [Area]);
-      }
-      if (data.hasOwnProperty('district')) {
-        obj['district'] = ApiClient.convertToType(data['district'], 'String');
-      }
-      if (data.hasOwnProperty('category_id')) {
-        obj['category_id'] = ApiClient.convertToType(data['category_id'], 'String');
-      }
-      if (data.hasOwnProperty('related_cases')) {
-        obj['related_cases'] = ApiClient.convertToType(data['related_cases'], [CaseRelatedCases]);
-      }
-      if (data.hasOwnProperty('originator')) {
-        obj['originator'] = ApiClient.convertToType(data['originator'], 'String');
-      }
-      if (data.hasOwnProperty('creation_date')) {
-        obj['creation_date'] = ApiClient.convertToType(data['creation_date'], 'Date');
-      }
-      if (data.hasOwnProperty('public')) {
-        obj['public'] = ApiClient.convertToType(data['public'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/CaseTitle} title
+   * The case's url
+   * @member {String} url
+   */
+  exports.prototype['url'] = undefined;
+  /**
+   * The case's unique identifier
+   * @member {Number} id
+   */
+  exports.prototype['id'] = undefined;
+  /**
+   * The case's data source
+   * @member {String} data_source
+   */
+  exports.prototype['data_source'] = undefined;
+  /**
+   * Array of urls to actions
+   * @member {Array.<String>} actions
+   */
+  exports.prototype['actions'] = undefined;
+  /**
+   * Array of geometries
+   * @member {Array.<module:model/Geometry>} geometries
+   */
+  exports.prototype['geometries'] = undefined;
+  /**
+   * The time at which the resource was created
+   * @member {Date} created_at
+   */
+  exports.prototype['created_at'] = undefined;
+  /**
+   * The time at which the resource was last modified
+   * @member {Date} modified_at
+   */
+  exports.prototype['modified_at'] = undefined;
+  /**
+   * The event's origin id
+   * @member {String} origin_id
+   */
+  exports.prototype['origin_id'] = undefined;
+  /**
+   * Title of the case
+   * @member {String} title
    */
   exports.prototype['title'] = undefined;
   /**
-   * @member {module:model/CaseSummary} summary
+   * Register id for this case
+   * @member {String} register_id
    */
-  exports.prototype['summary'] = undefined;
+  exports.prototype['register_id'] = undefined;
   /**
-   * Attachments related to this case
+   * Function url for this case
+   * @member {String} function
+   */
+  exports.prototype['function'] = undefined;
+  /**
+   * Array of attachments
    * @member {Array.<module:model/Attachment>} attachments
    */
   exports.prototype['attachments'] = undefined;
-  /**
-   * Category this case belongs to (\"tehtäväluokka\")
-   * @member {String} category
-   */
-  exports.prototype['category'] = undefined;
-  /**
-   * Geographic areas this case is related to
-   * @member {Array.<module:model/Area>} area
-   */
-  exports.prototype['area'] = undefined;
-  /**
-   * Name of district (if any), that this issue is related to.
-   * @member {String} district
-   */
-  exports.prototype['district'] = undefined;
-  /**
-   * Identifier code for the category, if applicable. In finland this could be the national \"Tehtäväluokitus\"
-   * @member {String} category_id
-   */
-  exports.prototype['category_id'] = undefined;
-  /**
-   * Other cases that are related to this case
-   * @member {Array.<module:model/CaseRelatedCases>} related_cases
-   */
-  exports.prototype['related_cases'] = undefined;
-  /**
-   * Person or organization the proposed this case to the city
-   * @member {String} originator
-   */
-  exports.prototype['originator'] = undefined;
-  /**
-   * Date this case was entered into system
-   * @member {Date} creation_date
-   */
-  exports.prototype['creation_date'] = undefined;
-  /**
-   * Is this case public?
-   * @member {Boolean} public
-   */
-  exports.prototype['public'] = undefined;
 
 
 
